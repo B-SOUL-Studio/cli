@@ -1,0 +1,26 @@
+{
+  "name": "@der-cli-dev/core",
+  "version": "0.0.1",
+  "description": "der-cli-dev core",
+  "author": "song <3224266014@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from core\""
+  },
+  "dependencies": {
+    "@der-cli-dev/utils": "^0.0.1"
+  }
+}

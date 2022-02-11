@@ -1,0 +1,9 @@
+{
+  "name": "der-cli-dev",
+  "version": "0.0.1",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
