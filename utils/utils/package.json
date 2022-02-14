@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/utils",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -19,8 +19,5 @@
   },
   "scripts": {
     "test": "echo \"Error: run tests from utils\""
-  },
-  "dependencies": {
-
   }
 }

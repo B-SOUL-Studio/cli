@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/exec",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "动态init库",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -21,8 +21,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/package": "file:../../models/package",
     "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/package": "file:../../models/package",
     "@der-cli-dev/utils": "file:../../utils/utils"
   }
 }
