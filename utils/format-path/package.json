@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/format-path",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -14,7 +14,6 @@
     "lib"
   ],
   "publishConfig": {
-    
     "access": "public"
   },
   "scripts": {

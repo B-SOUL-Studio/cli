@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/exec",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "动态init库",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -14,16 +14,15 @@
     "lib"
   ],
   "publishConfig": {
-    
     "access": "public"
   },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/log": "^0.0.6",
-    "@der-cli-dev/package": "^0.0.6",
-    "@der-cli-dev/utils": "^0.0.6"
+    "@der-cli-dev/log": "^0.0.7",
+    "@der-cli-dev/package": "^0.0.7",
+    "@der-cli-dev/utils": "^0.0.7"
   },
   "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"
 }

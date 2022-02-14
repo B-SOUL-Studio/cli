@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/get-npm-info",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "get npm info",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -14,7 +14,6 @@
     "lib"
   ],
   "publishConfig": {
-    
     "access": "public"
   },
   "scripts": {
