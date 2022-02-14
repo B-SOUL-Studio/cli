@@ -14,7 +14,7 @@
     "lib"
   ],
   "publishConfig": {
-    "registry": "http://registry.npm.org/",
+    
     "access": "public"
   },
   "scripts": {
@@ -24,5 +24,5 @@
     "@der-cli-dev/log": "^0.0.6",
     "colors": "^1.4.0"
   },
-  "gitHead": "9df7ce738ff12f3ca25fadcd071331ad3a8d2cdf"
+  "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"
 }
