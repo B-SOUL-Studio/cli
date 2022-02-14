@@ -1,0 +1,40 @@
+{
+  "name": "@der-cli-dev/core",
+  "version": "0.0.1",
+  "description": "How to use der? 'Just derderder~'",
+  "author": "song <3224266014@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "bin/index.js",
+  "bin": {
+    "der-dev": "bin/index.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/",
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from core\""
+  },
+  "dependencies": {
+    "@der-cli-dev/exec": "file:../exec",
+    "@der-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/init": "file:../../commands/init",
+    "colors": "^1.4.0",
+    "commander": "^9.0.0",
+    "dotenv": "^16.0.0",
+    "import-local": "^3.1.0",
+    "minimist": "^1.2.5",
+    "root-check": "^1.0.0",
+    "semver": "^7.3.5",
+    "user-home": "^3.0.0"
+  }
+}

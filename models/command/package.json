@@ -1,7 +1,7 @@
 {
-  "name": "@der-cli-dev/core",
+  "name": "@der-cli-dev/command",
   "version": "0.0.1",
-  "description": "der-cli-dev core",
+  "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
   "license": "ISC",
@@ -18,9 +18,10 @@
     "access": "public"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from core\""
+    "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/utils": "^0.0.1"
+    "@der-cli-dev/log": "file:../../utils/log",
+    "colors": "^1.4.0"
   }
 }

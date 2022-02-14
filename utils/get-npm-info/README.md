@@ -1,11 +1,11 @@
-# `core`
+# `get-npm-info`
 
 > TODO: description
 
 ## Usage
 
 ```
-const core = require('core');
+const getNpmInfo = require('get-npm-info');
 
 // TODO: DEMONSTRATE API
 ```

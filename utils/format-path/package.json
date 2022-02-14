@@ -1,0 +1,22 @@
+{
+  "name": "@der-cli-dev/format-path",
+  "version": "0.0.1",
+  "description": "> TODO: description",
+  "author": "song <3224266014@qq.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "http://registry.npm.taobao.org/"
+  },
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
