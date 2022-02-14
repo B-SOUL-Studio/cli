@@ -24,10 +24,10 @@
     "test": "echo \"Error: run tests from core\""
   },
   "dependencies": {
-    "@der-cli-dev/exec": "file:../exec",
-    "@der-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@der-cli-dev/init": "file:../../commands/init",
-    "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/exec": "^0.0.2",
+    "@der-cli-dev/get-npm-info": "^0.0.2",
+    "@der-cli-dev/init": "^0.0.2",
+    "@der-cli-dev/log": "^0.0.2",
     "colors": "^1.4.0",
     "commander": "^9.0.0",
     "dotenv": "^16.0.0",
@@ -36,5 +36,6 @@
     "root-check": "^1.0.0",
     "semver": "^7.3.5",
     "user-home": "^3.0.0"
-  }
+  },
+  "gitHead": "98882305959e3f3a1ab7014fe66ab6b1967dc5c3"
 }

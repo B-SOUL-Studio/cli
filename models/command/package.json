@@ -21,7 +21,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/log": "^0.0.2",
     "colors": "^1.4.0"
-  }
+  },
+  "gitHead": "98882305959e3f3a1ab7014fe66ab6b1967dc5c3"
 }

@@ -21,12 +21,13 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/format-path": "file:../../utils/format-path",
-    "@der-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@der-cli-dev/utils": "file:../../utils/utils",
+    "@der-cli-dev/format-path": "^0.0.2",
+    "@der-cli-dev/get-npm-info": "^0.0.2",
+    "@der-cli-dev/utils": "^0.0.2",
     "fs-extra": "^10.0.0",
     "npminstall": "^5.4.1",
     "path-exists": "^4.0.0",
     "pkg-dir": "^5.0.0"
-  }
+  },
+  "gitHead": "98882305959e3f3a1ab7014fe66ab6b1967dc5c3"
 }
