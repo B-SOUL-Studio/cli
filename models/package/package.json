@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/package",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "description": "der-cli npm module",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -21,9 +21,9 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/format-path": "^0.0.4",
-    "@der-cli-dev/get-npm-info": "^0.0.4",
-    "@der-cli-dev/utils": "^0.0.4",
+    "@der-cli-dev/format-path": "^0.0.5",
+    "@der-cli-dev/get-npm-info": "^0.0.5",
+    "@der-cli-dev/utils": "^0.0.5",
     "fs-extra": "^10.0.0",
     "npminstall": "^5.4.1",
     "path-exists": "^4.0.0",
