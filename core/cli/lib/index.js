@@ -40,7 +40,7 @@ async function prepare() {
   checkRoot();
   checkUserHome();
   checkEnv();
-  // await checkGlobalUpdate();
+  await checkGlobalUpdate();
 }
 
 // 2.脚手架初始化: 注册命令
@@ -60,6 +60,7 @@ function registerCommand() {
     .description('初始化项目')
     .option('-f, --force', '强制初始化项目(Clear folder)')
     .action(exec) // 动态init ☆
+
 
   // 开启debug模式
   program.on('option:debug', function () {
@@ -103,20 +104,20 @@ function checkPkgVersion() {
   log.info('cli', `正在使用 ${pkg.name}@${pkg.version}`);
 }
 
-// 1.3 检查是否为root用户启动
+// 1.2 检查是否为root用户启动
 function checkRoot() {
   const rootCheck = require('root-check');
   rootCheck(Error_ROOT_USER());
 }
 
-// 1.4 检查用户主目录
+// 1.3 检查用户主目录
 function checkUserHome() {
   if (!userHome || !pathExists(userHome)) {
     Error_USER_HOME_NOT_EXISTS()
   }
 }
 
-// 1.5 检查环境变量
+// 1.4 检查环境变量
 function checkEnv() {
   const dotenv = require('dotenv');
   // 检查本地是否存在 .env 文件
@@ -132,12 +133,12 @@ function checkEnv() {
   // C:\Users\hostname\.der-cli-dev
 }
 
-// 1.6 创建默认配置文件
+// 1.5 创建默认配置文件
 function createDefaultConfig() {
   const cliConfig = {
     home: userHome,
   };
-  if (process.env.CLI_HOME) {
+  if (process.env.DER_CLI_HOME) {
     cliConfig['cliHome'] = path.join(userHome, process.env.DER_CLI_HOME);
   } else {
     cliConfig['cliHome'] = path.join(userHome, DEFAULT_CLI_HOME);
@@ -145,7 +146,7 @@ function createDefaultConfig() {
   process.env.DER_CLI_HOME_PATH = cliConfig.cliHome;
 }
 
-// 1.7检查是否需要全局更新
+// 1.6 检查是否需要全局更新
 async function checkGlobalUpdate() {
   // 获取当前信息
   const currentVersion = pkg.version;
@@ -156,7 +157,8 @@ async function checkGlobalUpdate() {
   // 判断是否需要更新
   if (lastVersion && semver.gt(lastVersion, currentVersion)) {
     log.warn(Error_NPM_VERSION(npmName, currentVersion, lastVersion));
-  } else {
-    log.info('cli', '当前版本为最新版');
   }
+  // else {
+  //   log.info('cli', `当前版本为最新版: v${currentVersion}`);
+  // }
 }
