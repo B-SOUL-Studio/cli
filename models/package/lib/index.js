@@ -7,6 +7,7 @@ const pathExists = require('path-exists').sync;
 const npminstall = require('npminstall');
 const { isObject } = require('@der-cli-dev/utils');
 const formatPath = require('@der-cli-dev/format-path');
+const log = require('@der-cli-dev/log');
 const {
   getDefaultRegistry,
   getNpmLatestVersion
@@ -103,10 +104,10 @@ class Package {
           version: latestPackageVersion,
         }],
       });
-      log.info(`检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
     }
+    // TODO: downloadTemplate时此行未打印?
+    log.info(`检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
     this.packageVersion = latestPackageVersion;
-
   }
 
   // 获取入口文件的路径 /commands/init/

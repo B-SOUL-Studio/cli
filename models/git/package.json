@@ -1,9 +1,9 @@
 {
-  "name": "@der-cli-dev/init",
+  "name": "@der-cli-dev/git",
   "version": "0.0.7",
-  "description": "der-cli-dev init",
+  "description": "Git Flow models",
   "author": "song <3224266014@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/der-cli/der-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
   "directories": {
@@ -16,23 +16,22 @@
   "publishConfig": {
     "access": "public"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/der-cli/der-cli.git"
+  },
   "scripts": {
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
-  "dependencies": {
-    "@der-cli-dev/command": "file:../../models/command",
-    "@der-cli-dev/log": "file:../../utils/log",
-    "@der-cli-dev/package": "file:../../models/package",
-    "@der-cli-dev/utils": "file:../../utils/utils",
-    "@der-cli-dev/request": "file:../../utils/request",
-    "ejs": "^3.1.6",
-    "fs-extra": "^10.0.0",
-    "glob": "^7.2.0",
-    "inquirer": "^8.2.0",
-    "kebab-case": "^1.0.1",
-    "semver": "^7.3.5",
-    "spinner": "^0.3.4",
-    "user-home": "^3.0.0"
+  "bugs": {
+    "url": "https://github.com/der-cli/der-cli/issues"
   },
-  "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"
+  "dependencies": {
+    "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/utils": "file:../../utils/utils",
+    "axios": "^0.26.0",
+    "fs-extra": "^10.0.0",
+    "simple-git": "^3.2.6",
+    "user-home": "^3.0.0"
+  }
 }

@@ -20,7 +20,8 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "axios": "^0.25.0",
+    "axios": "^0.26.0",
+    "semver": "^7.3.5",
     "url-join": "^4.0.1"
   },
   "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"

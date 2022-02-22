@@ -2,10 +2,8 @@
 # yarn lockfile v1
 
 
-"@der-cli-dev/command@^0.0.7":
+"@der-cli-dev/command@file:../../models/command":
   version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@der-cli-dev/command/-/command-0.0.7.tgz#478ead3e5a7dd308b140a2541f126fb22054e884"
-  integrity sha512-pVdvR4qPyKXO4SrThz8xJTzTRWzCs3VHPM3vJM+u4NgpUfy/94so+TJ1F25Nxa27a1f9RewkChkBD6lrlA7kmw==
   dependencies:
     "@der-cli-dev/log" "^0.0.7"
     colors "^1.4.0"
@@ -30,10 +28,13 @@
   dependencies:
     npmlog "^6.0.1"
 
-"@der-cli-dev/package@^0.0.7":
+"@der-cli-dev/log@file:../../utils/log":
   version "0.0.7"
-  resolved "https://registry.yarnpkg.com/@der-cli-dev/package/-/package-0.0.7.tgz#4040bcd2e94f2312f13599558f17e81b396a89c2"
-  integrity sha512-BVJ3fUupoWbhTNH0IGp0eztS16425F6SVpoqR0MnsLY+UvNMC6MLMsZO/akZiIro9cmdoKAk6gfpDHz2jZii+g==
+  dependencies:
+    npmlog "^6.0.1"
+
+"@der-cli-dev/package@file:../../models/package":
+  version "0.0.7"
   dependencies:
     "@der-cli-dev/format-path" "^0.0.7"
     "@der-cli-dev/get-npm-info" "^0.0.7"
@@ -43,10 +44,18 @@
     path-exists "^4.0.0"
     pkg-dir "^5.0.0"
 
+"@der-cli-dev/request@file:../../utils/request":
+  version "0.0.7"
+  dependencies:
+    axios "^0.26.0"
+
 "@der-cli-dev/utils@^0.0.7":
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/@der-cli-dev/utils/-/utils-0.0.7.tgz#5803bdbbb350cb59aa1b885ba6741956d4550cdc"
   integrity sha512-HugT/mBuvCOpL4PxNhus617J040WzqVNFIhTJoGnI1Or3O6myEmtvl4ac3obIH1WnsjQgeSqfDo3LGd/s3aIpg==
+
+"@der-cli-dev/utils@file:../../utils/utils":
+  version "0.0.7"
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
@@ -299,6 +308,13 @@ axios@^0.25.0:
   integrity sha512-cD8FOb0tRH3uuEe6+evtAbgJtfxr7ly3fQjYcMcuPlgkwVS9xboaVIpcDV+cYQe+yGykgwZCs1pzjntcGa6l5g==
   dependencies:
     follow-redirects "^1.14.7"
+
+axios@^0.26.0:
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.26.0.tgz#9a318f1c69ec108f8cd5f3c3d390366635e13928"
+  integrity sha512-lKoGLMYtHvFrPVt3r+RBMp9nh34N0M8zEfCWqdWZx6phynIEhQqAdydpyBAAG211zlhX9Rgu08cOamy6XjE5Og==
+  dependencies:
+    follow-redirects "^1.14.8"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -814,6 +830,11 @@ follow-redirects@^1.14.7:
   version "1.14.8"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.8.tgz#016996fb9a11a100566398b1c6839337d7bfa8fc"
   integrity sha512-1x0S9UVJHsQprFcEC/qnNzBLcIxsjAV905f/UkQxbclCsoTWlacCNOpQa/anodLl2uaEKFhfWOvM2Qg77+15zA==
+
+follow-redirects@^1.14.8:
+  version "1.14.9"
+  resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.14.9.tgz#dd4ea157de7bfaf9ea9b3fbd85aa16951f78d8d7"
+  integrity sha512-MQDfihBQYMcyy5dhRDJUHcw7lb2Pv/TuE6xP1vyraLukNDHKbDxDNaOE3NbCAdKQApno+GPRyo1YAp89yCjK4w==
 
 forever-agent@~0.6.1:
   version "0.6.1"

@@ -20,9 +20,10 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/format-path": "^0.0.7",
-    "@der-cli-dev/get-npm-info": "^0.0.7",
-    "@der-cli-dev/utils": "^0.0.7",
+    "@der-cli-dev/format-path": "file:../../utils/format-path",
+    "@der-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
+    "@der-cli-dev/utils": "file:../../utils/utils",
+    "@der-cli-dev/log": "file:../../utils/log",
     "fs-extra": "^10.0.0",
     "npminstall": "^5.4.1",
     "path-exists": "^4.0.0",

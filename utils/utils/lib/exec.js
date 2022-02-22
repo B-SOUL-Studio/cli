@@ -9,6 +9,7 @@ function exec(command, args, options) {
   return require('child_process').spawn(cmd, cmdArgs, options || {});
 }
 
+// 异步执行
 function execAsync(command, args, options) {
   return new Promise((resolve, reject) => {
     const p = exec(command, args, options);

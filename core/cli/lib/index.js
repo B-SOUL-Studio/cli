@@ -48,7 +48,7 @@ function registerCommand() {
   const options = program.opts();
 
   program
-    .name(Object.keys(pkg.bin)[0]) // der-cli-dev
+    .name(Object.keys(pkg.bin)[0]) // der-dev
     .description(pkg.description)
     .usage('<command> [options]')
     .version(pkg.version)
@@ -59,8 +59,17 @@ function registerCommand() {
     .command('init [projectName]')
     .description('初始化项目')
     .option('-f, --force', '强制初始化项目(Clear folder)')
-    .action(exec) // 动态init ☆
+    .action(exec) // 子进程 ☆
 
+  program
+    .command('publish')
+    .description('发布项目')
+    // .option('-pp,--packagePath <packagePath>', '手动指定publish包路径')
+    .option('-rs, --refreshServer', '强制更新本地Git平台缓存')
+    .option('-rt, --refreshToken', '强制更新本地Git Token缓存')
+    .option('-ro, --refreshOwner', '强制更新Git Owner信息')
+    .option('-f, --force', '强制更新所有缓存信息')
+    .action(exec)
 
   // 开启debug模式
   program.on('option:debug', function () {
@@ -101,7 +110,8 @@ function registerCommand() {
 
 // 1.1 检查 @der-cli/core 版本号
 function checkPkgVersion() {
-  log.info('cli', `正在使用 ${pkg.name}@${pkg.version}`);
+  console.log();
+  log.info('cli', `${pkg.name}@${pkg.version}`);
 }
 
 // 1.2 检查是否为root用户启动
