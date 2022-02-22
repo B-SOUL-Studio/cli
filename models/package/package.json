@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/package",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "der-cli npm module",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -22,8 +22,8 @@
   "dependencies": {
     "@der-cli-dev/format-path": "file:../../utils/format-path",
     "@der-cli-dev/get-npm-info": "file:../../utils/get-npm-info",
-    "@der-cli-dev/utils": "file:../../utils/utils",
     "@der-cli-dev/log": "file:../../utils/log",
+    "@der-cli-dev/utils": "file:../../utils/utils",
     "fs-extra": "^10.0.0",
     "npminstall": "^5.4.1",
     "path-exists": "^4.0.0",
