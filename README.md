@@ -1,8 +1,9 @@
 <p align="center">
-	<img width='300px' src='./logo.png' alt='der'/>
+	<img width='300px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/der.png' alt='der'/>
 </p>
 
-<p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for F</p>
+
+<p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
 > 开发中
 
