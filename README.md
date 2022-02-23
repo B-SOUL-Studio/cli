@@ -1,17 +1,17 @@
-​             
+<p align="center">
+	<img width='300px' src='./logo.png' alt='der'/>
+</p>
 
-![der-cli](./logo.png)
-
-# ⚡𝓓𝓮𝓻
+<p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for F</p>
 
 > 开发中
 
-### What is Der?
+### What is 𝓓𝓮𝓻?
 
 - A **scaffolding tool** to improve development efficiency for the front end, build with **Node.js**.
 - 一个提升前端开发效率的脚手架工具。
 
-### How to Der? 
+### How to 𝓓𝓮𝓻? 
 
 - Just der der der~
 - "joke"
@@ -22,7 +22,7 @@
 - ⚡高性能: 基于 Node.js 多进程执行任务, 并配合本地缓存;
 - 🔨扩展性: 基于 Class 式编程，功能扩展更便捷;
 - 🔥规范化: 使用 **Lerna** 工具架构仓库, 优化工作流程;
-- 🔰安全性: 所有用户信息以本地缓存保存。
+- 🔰安全性: 所有私人信息以本地缓存保存.
 
 
 
