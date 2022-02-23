@@ -178,3 +178,14 @@ async function checkGlobalUpdate() {
   //   log.info('cli', `当前版本为最新版: v${currentVersion}`);
   // }
 }
+
+process.on('unhandleRejection', (reason, p) => {
+  console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
+  throw reason;
+})
+
+// 监听全局错误
+process.on('uncaughtException', (err) => {
+  log.error('uncaughtException', err);
+  process.exit(1);
+})

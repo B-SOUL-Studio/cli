@@ -14,9 +14,14 @@ const Error_FAILED_CREATE_REMOTE_REPO = () => {
   throw new Error('[Git]远程仓库创建失败');
 }
 
+const Error_CODE_CONFLICTS = () => {
+  throw new Error('[Git]当前代码存在冲突, 请手动处理合并后再试!');
+}
+
 module.exports = {
   Error_CAN_NOT_FIND_USER_HOME,
   Error_INIT_GIT_SERVER_FAILED,
   Error_FAILED_GET_INFO,
-  Error_FAILED_CREATE_REMOTE_REPO
+  Error_FAILED_CREATE_REMOTE_REPO,
+  Error_CODE_CONFLICTS
 }

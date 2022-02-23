@@ -1,7 +1,7 @@
 {
-  "name": "@der-cli-dev/git",
+  "name": "@der-cli-dev/cloudbuild",
   "version": "0.0.8",
-  "description": "Git Flow models",
+  "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
   "license": "ISC",
@@ -27,12 +27,6 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli-dev/log": "file:../../utils/log",
-    "@der-cli-dev/utils": "file:../../utils/utils",
-    "axios": "^0.26.0",
-    "fs-extra": "^10.0.0",
-    "semver": "^7.3.5",
-    "simple-git": "^3.2.6",
-    "user-home": "^3.0.0"
+    "socket.io-client": "^2.3.1"
   }
 }

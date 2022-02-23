@@ -1,9 +1,10 @@
 <p align="center">
-	<img width='300px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/der.png' alt='der'/>
+	<img width='100px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/logo-der.png' alt='der'/>
 </p>
 
-
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
+
+
 
 > 开发中
 
@@ -25,7 +26,7 @@
 - 🔥规范化: 使用 **Lerna** 工具架构仓库, 优化工作流程;
 - 🔰安全性: 所有私人信息以本地缓存保存.
 
-
+<img width='300px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/der.png' alt='der'/>
 
 ## Quick Start
 

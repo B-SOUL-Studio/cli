@@ -39,8 +39,8 @@ class InitCommand extends Command {
     this.projectName = this._argv[0] || '';
     // this.force = !!this._cmd.force;
     this.force = !!this._argv[1].force;
-    log.verbose('工程名称:', this.projectName);
-    log.verbose('强制清空目录:', this.force);
+    log.verbose('[init]工程名称:', this.projectName);
+    log.verbose('[init]强制清空目录:', this.force);
   }
 
   // 默认执行
@@ -100,7 +100,7 @@ class InitCommand extends Command {
         });
         if (confirmDelete) {
           // 清空当前目录
-          log.verbose('目录已清空:', localPath)
+          log.verbose('[init]目录已清空:', localPath)
           fse.emptyDirSync(localPath);
         }
       }
@@ -280,7 +280,7 @@ class InitCommand extends Command {
 
     if (!await templateNpm.exists()) {
       // 如果模板不存在，则下载
-      const spinner = spinnerStart('正在下载模板...');
+      const spinner = spinnerStart('[init]正在下载模板...');
       await sleep();
       try {
         await templateNpm.install();
@@ -289,7 +289,7 @@ class InitCommand extends Command {
       } finally {
         spinner.stop(true);
         if (await templateNpm.exists()) {
-          log.success('下载模板成功');
+          log.success('[init]下载模板...done');
           this.templateNpm = templateNpm;
         }
       }
@@ -334,7 +334,7 @@ class InitCommand extends Command {
 
   async installNormalTemplate() {
     const { cacheFilePath } = this.templateNpm;
-    log.verbose('模板缓存路径:', cacheFilePath);
+    log.verbose('[init]模板缓存路径:', cacheFilePath);
     // 拷贝模板代码至当前目录
     let spinner = spinnerStart('正在安装模板...');
     await sleep();
@@ -349,7 +349,7 @@ class InitCommand extends Command {
       throw e;
     } finally {
       spinner.stop(true);
-      log.success('模板安装成功');
+      log.success('[init]模板安装...done');
     }
 
     const templateIgnore = this.templateInfo.ignore || [];
@@ -367,7 +367,7 @@ class InitCommand extends Command {
     if (await this.templateNpm.exists()) {
       const rootFile = this.templateNpm.getRootFilePath();
       if (fs.existsSync(rootFile)) {
-        log.notice('开始执行自定义模板');
+        log.notice('[init]开始执行自定义模板...');
         const templatePath = path.resolve(this.templateNpm.cacheFilePath, 'template');
         const options = {
           templateInfo: this.templateInfo,
@@ -379,7 +379,7 @@ class InitCommand extends Command {
         const code = `require('${rootFile}')(${JSON.stringify(options)})`;
         log.verbose('code', code);
         await execAsync('node', ['-e', code], { stdio: 'inherit', cwd: process.cwd() });
-        log.success('自定义模板安装成功');
+        log.success('[init]自定义模板安装...done');
       } else {
         Error_COSTOM_TEMPLATE_INDEX_IS_NOT_EXISTS()
       }
