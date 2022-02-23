@@ -7,11 +7,13 @@ const semver = require('semver');
 const userHome = require('user-home');
 const pathExists = require('path-exists').sync;
 const { Command } = require('commander');
+const colors = require('colors/safe');
 const pkg = require('../package.json');
 const log = require('@der-cli-dev/log');
 const exec = require('@der-cli-dev/exec');
 const {
-  DEFAULT_CLI_HOME
+  DEFAULT_CLI_HOME,
+  DER_CLI_LOGO
 } = require('./const');
 const {
   Error_USER_HOME_NOT_EXISTS,
@@ -36,6 +38,7 @@ async function core() {
 
 // 1.准备阶段
 async function prepare() {
+  printLogo()
   checkPkgVersion();
   checkRoot();
   checkUserHome();
@@ -79,7 +82,7 @@ function registerCommand() {
       process.env.DER_CLI_LOG_LEVEL = 'info';
     }
     log.level = process.env.DER_CLI_LOG_LEVEL;
-    log.verbose('debug', 'You have turned on debugging.');
+    log.verbose('[core/cli]debug', 'You have turned on debugging.');
   });
 
   // 指定targetPath
@@ -108,10 +111,13 @@ function registerCommand() {
   }
 }
 
+function printLogo() {
+  console.log(colors.cyan(DER_CLI_LOGO));
+}
+
 // 1.1 检查 @der-cli/core 版本号
 function checkPkgVersion() {
-  console.log();
-  log.info('cli', `${pkg.name}@${pkg.version}`);
+  log.info('[core/cli]cli', `${pkg.name}@${pkg.version}`);
 }
 
 // 1.2 检查是否为root用户启动
