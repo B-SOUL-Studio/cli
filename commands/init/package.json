@@ -20,11 +20,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/command": "file:../../models/command",
-    "@der-cli-dev/log": "file:../../utils/log",
-    "@der-cli-dev/package": "file:../../models/package",
-    "@der-cli-dev/request": "file:../../utils/request",
-    "@der-cli-dev/utils": "file:../../utils/utils",
+    "@der-cli-dev/command": "^0.0.9",
+    "@der-cli-dev/log": "^0.0.9",
+    "@der-cli-dev/package": "^0.0.9",
+    "@der-cli-dev/request": "^0.0.9",
+    "@der-cli-dev/utils": "^0.0.9",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
@@ -34,5 +34,5 @@
     "spinner": "^0.3.4",
     "user-home": "^3.0.0"
   },
-  "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"
+  "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

@@ -27,8 +27,9 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli-dev/command": "file:../../models/command",
-    "@der-cli-dev/git": "file:../../models/git",
-    "@der-cli-dev/log": "file:../../utils/log"
-  }
+    "@der-cli-dev/command": "^0.0.9",
+    "@der-cli-dev/git": "^0.0.9",
+    "@der-cli-dev/log": "^0.0.9"
+  },
+  "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

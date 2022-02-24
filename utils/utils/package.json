@@ -19,7 +19,7 @@
   "scripts": {
     "test": "echo \"Error: run tests from utils\""
   },
-  "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3",
+  "gitHead": "ff83013d9331007eed4708356e166448ead08b0e",
   "dependencies": {
     "cli-spinner": "^0.2.10",
     "inquirer": "^8.2.0",
