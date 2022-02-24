@@ -14,7 +14,6 @@ const {
 class PublishCommand extends Command {
   init() {
     // 参数处理
-    // log.verbose('publish init', this._argv);
     this.options = {
       ...this._argv[0]
     }
@@ -29,9 +28,10 @@ class PublishCommand extends Command {
       const git = new Git(this.projectInfo, this.options);
       await git.prepare(); // 代码提交准备、初始化仓库
       await git.commit() // 提交代码
+      await git.releaseTag() // 发布 tag
       // 3.云构建、云发布
       const endTime = new Date().getTime();
-      log.success('[Publish]本次发布耗时:', Math.floor(endTime - startTime) + 'ms');
+      log.success('[Publish]本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
 
     } catch (e) {
       log.error(e);

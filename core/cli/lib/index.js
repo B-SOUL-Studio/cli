@@ -71,6 +71,7 @@ function registerCommand() {
     .option('-rs, --refreshServer', '强制更新本地Git平台缓存')
     .option('-rt, --refreshToken', '强制更新本地Git Token缓存')
     .option('-ro, --refreshOwner', '强制更新Git Owner信息')
+    .option('-re, --release', '发布Tag版本')
     .option('-f, --force', '强制更新所有缓存信息')
     .action(exec)
 

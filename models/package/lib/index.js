@@ -18,7 +18,7 @@ const {
 } = require('./error');
 
 /**
- * 本地 Package 包缓存功能核心实现
+ * 本地 Package 依赖下载、更新、缓存核心实现
  *
  * @class Package
  */
@@ -37,7 +37,7 @@ class Package {
     this.storeDir = storeDir; // package node_modules 路径
     this.packageName = packageName; // package name
     this.packageVersion = packageVersion; // package version
-    this.cacheFilePathPrefix = this.packageName.replace('/', '_'); // package的缓存目录前缀
+    this.cacheFilePathPrefix = this.packageName.replace('/', '_'); // 解析package的缓存目录前缀
   }
 
   // 准备阶段

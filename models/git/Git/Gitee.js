@@ -28,14 +28,21 @@ class Gitee extends GitServer {
   };
 
   setToken(token) {
+    // super.setToken(token);
     // 创建API请求实例, 并携带token参数
     this.request = new GiteeRequest(token);
   };
 
   getRepo(owner, repo) {
-    return this.request.get(`/repos/${owner}/${repo}`).then(response => {
-      return this.handleResponse(response);
-    });
+    return new Promise((resolve, reject) => {
+      this.request.get(`/repos/${owner}/${repo}`)
+        .then(response => {
+          resolve(this.handleResponse(response));
+          // resolve(response);
+        }).catch(error => {
+          reject(error);
+        });
+    })
   };
 
   createRepo(repo) {

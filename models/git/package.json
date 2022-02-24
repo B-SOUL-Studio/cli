@@ -21,7 +21,10 @@
     "url": "git+https://github.com/der-cli/der-cli.git"
   },
   "scripts": {
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "yarn test:git && yarn test:gitee && yarn test:github",
+    "test:git": "mocha __tests__/git.test.js",
+    "test:gitee": "mocha __tests__/gitee.test.js",
+    "test:github": "mocha __tests__/github.test.js"
   },
   "bugs": {
     "url": "https://github.com/der-cli/der-cli/issues"
@@ -31,7 +34,9 @@
     "@der-cli-dev/utils": "^0.0.10",
     "axios": "^0.26.0",
     "fs-extra": "^10.0.0",
+    "mocha": "^9.2.1",
     "semver": "^7.3.5",
+    "should": "^13.2.3",
     "simple-git": "^3.2.6",
     "user-home": "^3.0.0"
   },

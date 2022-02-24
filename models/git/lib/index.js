@@ -57,7 +57,7 @@ const {
  */
 class Git {
   /**
-   * 构造函数
+   * 初始化
    *
    * @param dir git 仓库本地目录
    * @param name git 仓库名称
@@ -67,7 +67,12 @@ class Git {
    * @param refreshOwner 是否强制刷新own数据
    * @param refreshServer 是否强制刷新git远程仓库类型
    */
-  constructor({ name, version, dir }, { refreshServer, refreshToken, refreshOwner }) {
+  constructor({ name, version, dir }, {
+    refreshServer = false,
+    refreshToken = false,
+    refreshOwner = false,
+    release = false,
+  }) {
     this.git = SimpleGit(dir) // 实例化
     this.name = name; //项目名称
     this.version = version; // 项目版本号
@@ -84,6 +89,7 @@ class Git {
     this.refreshServer = refreshServer // 强制刷新 git 远程仓库平台
     this.refreshToken = refreshToken // 强制刷新 token
     this.refreshOwner = refreshOwner // 强制刷新 owner
+    this.release = release // 发布 release 版本
   }
 
   /* prepare ********************************************/
@@ -406,7 +412,7 @@ class Git {
 
   // 推送代码至指定远程分支
   async pushRemoteRepo(branchName) {
-    log.notice(`[Git]推送代码至远程${branchName}分支...`);
+    log.notice(`[Git]推送代码至远程[${branchName}]分支...`);
     await this.git.push('origin', branchName);
     log.success('[Git]推送代码...done');
   };
@@ -438,6 +444,7 @@ class Git {
     await this.checkoutBranch(this.branch); // 5.切换开发分支
     await this.pullRemoteMasterAndBranch(); // 6.合并远程master分支和开发分支代码
     await this.pushRemoteRepo(this.branch); // 7. 将开发分支push到远程仓库
+    log.notice('[Git]Dev commit done, publish this tag version to release by using [-re] parameter.');
   }
 
   // 生成开发分支
@@ -567,6 +574,64 @@ class Git {
     } else {
       log.success(`[Git]不存在远程分支:`, `${this.branch}`);
     }
+  };
+
+  /* release Tag & delete dev branch*/
+
+  async releaseTag() {
+    if (this.release) {
+      await this.checkTag(); // 打tag
+      await this.checkoutBranch('master'); // 切换本地分支到master
+      await this.mergeReleaseToMaster(); // 合并tag到master
+      await this.pushRemoteRepo('master'); // 推送master分支
+      await this.deleteLocalBranch(); // 删除本地开发分支
+      await this.deleteRemoteBranch(); // 删除远程开发分支
+    }
+  }
+
+  // 检查本地与远程tag分支
+  async checkTag() {
+    log.info('[Git]开始发布Tag...');
+    const tag = `${VERSION_RELEASE}/${this.version}`;
+    const tagList = await this.getRemoteBranchList(VERSION_RELEASE);
+    if (tagList.includes(this.version)) {
+      log.info(`[Git]远程tag已存在:`, tag);
+      // log.info('[Git]执行操作:', `dev/${this.version} => ${tag}`);
+      await this.git.push(['origin', `:refs/tags/${tag}`]);
+      log.success(`[Git]远程tag已删除:`, tag);
+    }
+    // 获取本地tag
+    const localTagList = await this.git.tags();
+    if (localTagList.all.includes(tag)) {
+      log.info(`[Git]本地tag已存在:`, tag);
+      await this.git.tag(['-d', tag]);
+      log.success(`[Git]本地tag已删除:`, tag);
+    }
+    await this.git.addTag(tag);
+    log.success(`[Git]本地tag创建成功:`, tag);
+    await this.git.pushTags(['origin']);
+    log.success(`[Git]远程tag推送成功:`, tag);
+  }
+
+  // 合并release分支到master
+  async mergeReleaseToMaster() {
+    log.info(`[Git]合并分支:`, `${this.branch} => master`);
+    await this.git.mergeFromTo(this.branch, 'master');
+    log.success(`[Git]合并成功...done`);
+  }
+
+  // 删除本地开发分支
+  async deleteLocalBranch() {
+    log.notice('[Git]删除本地开发分支:', this.branch);
+    await this.git.deleteLocalBranch(this.branch);
+    log.success('[Git]删除本地开发分支...done');
+  };
+
+  // 删除远程开发分支
+  async deleteRemoteBranch() {
+    log.notice('[Git]删除远程开发分支:', this.branch);
+    await this.git.push(['origin', '--delete', this.branch]);
+    log.success('[Git]删除远程开发分支...done');
   };
 }
 

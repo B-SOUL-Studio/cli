@@ -11,6 +11,8 @@
 > - [ ] Add template for new project
 > - [ ] Add BDD tests
 > - [ ] Add commit standard
+> - [ ] Replace UserHome with `const { homedir } = require('os')`
+> - [ ] Add build component project animation
 
 ### What is 𝓓𝓮𝓻?
 
@@ -26,8 +28,6 @@
 - 🔨 扩展性: 基于 Class 式编程，功能扩展更便捷;
 - 🔥 规范化: 使用 **Lerna** 工具架构仓库, 优化工作流程;
 - 🔰 安全性: 所有私人信息以本地缓存保存.
-
-
 
 ## 𝓓𝓮𝓻 can do
 
