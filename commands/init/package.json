@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/init",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "description": "der-cli-dev init",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -20,11 +20,11 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/command": "^0.0.9",
-    "@der-cli-dev/log": "^0.0.9",
-    "@der-cli-dev/package": "^0.0.9",
-    "@der-cli-dev/request": "^0.0.9",
-    "@der-cli-dev/utils": "^0.0.9",
+    "@der-cli-dev/command": "^0.0.10",
+    "@der-cli-dev/log": "^0.0.10",
+    "@der-cli-dev/package": "^0.0.10",
+    "@der-cli-dev/request": "^0.0.10",
+    "@der-cli-dev/utils": "^0.0.10",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
