@@ -7,6 +7,7 @@ const semver = require('semver');
 const userHome = require('user-home');
 const pathExists = require('path-exists').sync;
 const { Command } = require('commander');
+const rootCheck = require('root-check');
 const colors = require('colors/safe');
 const pkg = require('../package.json');
 const log = require('@der-cli-dev/log');
@@ -110,18 +111,18 @@ function registerCommand() {
   }
 }
 
+// 1.0 der logo
 function printLogo() {
   console.log(colors.cyan(DER_CLI_LOGO));
 }
 
 // 1.1 检查 @der-cli/core 版本号
 function checkPkgVersion() {
-  log.info('[core/cli]cli', `${pkg.name}@${pkg.version}`);
+  log.info('core/cli', `${pkg.name}@${pkg.version}`);
 }
 
 // 1.2 检查是否为root用户启动
 function checkRoot() {
-  const rootCheck = require('root-check');
   rootCheck(Error_ROOT_USER());
 }
 
