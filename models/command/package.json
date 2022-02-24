@@ -1,6 +1,6 @@
 {
   "name": "@der-cli-dev/command",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -20,7 +20,7 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/log": "^0.0.8",
+    "@der-cli-dev/log": "^0.0.9",
     "colors": "^1.4.0"
   },
   "gitHead": "cedcd2fb05b7570237aaf518bd478d37232688c3"
