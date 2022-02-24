@@ -13,7 +13,7 @@ const {
 // 映射表 cmdName -> packageName
 const SETTINGS = {
   init: '@der-cli-dev/init',
-  publish: '@der-cli-dev/publish',
+  go: '@der-cli-dev/publish',
 };
 
 /**

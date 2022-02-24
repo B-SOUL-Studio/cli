@@ -17,7 +17,6 @@ const {
   Error_OPTION_IS_NOT_OBJECT
 } = require('./error');
 
-
 /**
  * 本地 Package 包缓存功能核心实现
  *

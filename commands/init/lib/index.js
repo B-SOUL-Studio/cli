@@ -30,7 +30,8 @@ const {
   TYPE_COMPONENT,
   TEMPLATE_TYPE_NORMAL,
   TEMPLATE_TYPE_CUSTOM,
-  WHITE_COMMAND
+  WHITE_COMMAND,
+  COMPONENT_FILE
 } = require('./const');
 
 class InitCommand extends Command {
@@ -116,9 +117,9 @@ class InitCommand extends Command {
       // 1.首字符必须为英文字符
       // 2.尾字符必须为英文或数字，不能为字符
       // 3.字符仅允许 "-" "_" 分隔
-      // 合法: a, a-b, a_b, a_b_c, a-b1-c2, a1_b2_c3
-      // 不合法: a_, 1, a-, -a, a_1, a-1 
-      return /^[a-zA-Z]+([-][a-zA-Z][a-zA-Z0-9]*|[_][a-zA-Z][a-zA-Z0-9]*|[a-zA-Z0-9])*$/.test(v);
+      // 合法: a, a-b, a_b, a_b_c, a-b1-c2, a1_b2_c3, @abc/dfg 
+      // 不合法: a_, 1, a-, -a, a_1, a-1
+      return /^(@[a-zA-Z0-9-_]+\/)?[a-zA-Z]+([-][a-zA-Z][a-zA-Z0-9]*|[_][a-zA-Z][a-zA-Z0-9]*|[a-zA-Z0-9])*$/.test(v);
     }
 
     let projectInfo = {}; // 项目/组件信息  
@@ -338,10 +339,10 @@ class InitCommand extends Command {
     // 拷贝模板代码至当前目录
     let spinner = spinnerStart('正在安装模板...');
     await sleep();
+    const targetPath = process.cwd(); // 终端执行的路径
     try {
       // 模板缓存路径
       const templatePath = path.resolve(cacheFilePath, 'template');
-      const targetPath = process.cwd(); // 终端执行的路径
       fse.ensureDirSync(templatePath); // 确保目录存在
       fse.ensureDirSync(targetPath);
       fse.copySync(templatePath, targetPath);
@@ -353,8 +354,16 @@ class InitCommand extends Command {
     }
 
     const templateIgnore = this.templateInfo.ignore || [];
-    const ignore = ['**/node_modules/**', ...templateIgnore];
+    const ignore = [
+      '**/node_modules/**',
+      '**/.git/**',
+      '**/.vscode/**',
+      '**/.DS_Store',
+      ...templateIgnore
+    ];
     await this.ejsRender({ ignore }); // ejs模板渲染
+    // 如果初始化组件, 则生成组件配置文件
+    await this.createComponentFile(targetPath);
     const { installCommand, startCommand } = this.templateInfo;
     // 依赖安装 [yarn / npm install]
     await this.execCommand(installCommand, Error_DEPENDENCY_INSTALLATION_FAILD());
@@ -440,6 +449,23 @@ class InitCommand extends Command {
       throw new Error(errMsg);
     }
     return ret;
+  }
+
+  // 如果是组件项目，则创建组件相关文件
+  async createComponentFile(dir) {
+    const templateInfo = this.templateInfo;
+    const projectInfo = this.projectInfo;
+    if (templateInfo.tag.includes(TYPE_COMPONENT)) {
+      const componentData = {
+        ...projectInfo,
+        buildPath: templateInfo.buildPath,
+        examplePath: templateInfo.examplePath,
+        npmName: templateInfo.npmName,
+        npmVersion: templateInfo.version,
+      }
+      const componentFile = path.resolve(dir, COMPONENT_FILE);
+      fs.writeFileSync(componentFile, JSON.stringify(componentData));
+    }
   }
 
   createTemplateChoice() {

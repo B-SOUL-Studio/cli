@@ -65,9 +65,8 @@ function registerCommand() {
     .action(exec) // 子进程 ☆
 
   program
-    .command('publish')
+    .command('go')
     .description('发布项目')
-    // .option('-pp,--packagePath <packagePath>', '手动指定publish包路径')
     .option('-rs, --refreshServer', '强制更新本地Git平台缓存')
     .option('-rt, --refreshToken', '强制更新本地Git Token缓存')
     .option('-ro, --refreshOwner', '强制更新Git Owner信息')

@@ -7,7 +7,6 @@ const fse = require('fs-extra');
 const semver = require('semver');
 const Github = require('../Git/Github');
 const Gitee = require('../Git/Gitee');
-const CloudBuild = require('@der-cli-dev/cloudbuild');
 const log = require('@der-cli-dev/log');
 const {
   readFile,
@@ -20,7 +19,10 @@ const {
   Error_INIT_GIT_SERVER_FAILED,
   Error_FAILED_GET_INFO,
   Error_FAILED_CREATE_REMOTE_REPO,
-  Error_CODE_CONFLICTS
+  Error_CODE_CONFLICTS,
+  Error_BUIILD_FAILED,
+  Error_BUIILD_PATH_NOT_FOUND,
+  Error_PACKAGE_JSON_NOT_FOUND
 } = require('./error');
 const {
   DEFAULT_CLI_HOME,
@@ -64,10 +66,6 @@ class Git {
    * @param refreshToken 是否强制刷新token数据
    * @param refreshOwner 是否强制刷新own数据
    * @param refreshServer 是否强制刷新git远程仓库类型
-   * @param prod 是否为正式发布，正式发布后会建立tag删除开发分支
-   * @param sshUser 远程服务器用户名
-   * @param sshIp 远程服务器IP
-   * @param sshPath 远程服务器路径
    */
   constructor({ name, version, dir }, { refreshServer, refreshToken, refreshOwner }) {
     this.git = SimpleGit(dir) // 实例化
@@ -98,7 +96,7 @@ class Git {
     await this.checkGitOwner();
     await this.checkRepo();
     await this.checkGitIgnore();
-
+    await this.checkComponent();
     await this.init();
   }
 
@@ -227,6 +225,11 @@ class Git {
       let createStart = spinner('开始创建远程仓库...');
       try {
         if (this.owner === REPO_OWNER_USER) {
+          if (this.name.startsWith('@') && this.name.indexOf('/') > 0) {
+            // @der/vui => der-vui
+            const nameArr = this.name.split('/');
+            this.name = nameArr.join('-').replace('@', '');
+          }
           repo = await this.gitServer.createRepo(this.name);
         } else {
           repo = await this.gitServer.createOrgRepo(this.name, this.login);
@@ -257,6 +260,36 @@ class Git {
       log.success('[Git]生成.gitignore文件...done');
     }
   }
+
+  // 检查 component 是否打包
+  async checkComponent() {
+    let componentFile = this.isComponent();
+    // 只有 component 才启动该逻辑
+    if (componentFile) {
+      log.notice('[Git]组件Build...');
+      require('child_process').execSync('npm run build', {
+        cwd: this.dir,
+      });
+      const buildPath = path.resolve(this.dir, componentFile.buildPath);
+      if (!fs.existsSync(buildPath)) {
+        Error_BUIILD_FAILED(buildPath)
+      }
+      const pkg = this.getPackageJson();
+      if (!pkg.files || !pkg.files.includes(componentFile.buildPath)) {
+        Error_BUIILD_PATH_NOT_FOUND(componentFile.buildPath)
+      }
+      log.notice('[Git]Build检查...done');
+    }
+  };
+
+  // 获取项目package.json文件
+  getPackageJson() {
+    const pkgPath = path.resolve(this.dir, 'package.json');
+    if (!fs.existsSync(pkgPath)) {
+      Error_PACKAGE_JSON_NOT_FOUND()
+    }
+    return fse.readJsonSync(pkgPath);
+  };
 
   // 判断是否为组件
   isComponent() {
@@ -450,7 +483,7 @@ class Git {
       this.version = incVersion;
       this.syncVersionToPackageJson(); // 更新版本号
     }
-    log.success(`[Git]代码分支获取:`, `${this.branch}...done`);
+    log.success(`[Git]代码分支:`, `${this.branch}...done`);
   }
 
   // 获取远程开发分支
@@ -535,10 +568,6 @@ class Git {
       log.success(`[Git]不存在远程分支:`, `${this.branch}`);
     }
   };
-
-  /* CloudBuild ************************************************ */
-
-
 }
 
 module.exports = Git;
