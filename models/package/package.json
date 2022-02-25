@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/package",
-  "version": "0.1.3",
+  "version": "0.1.5",
   "description": "本地 Package 依赖下载、更新、缓存核心实现",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@der-cli/format-path": "^0.1.3",
-    "@der-cli/get-npm-info": "^0.1.3",
+    "@der-cli/get-npm-info": "^0.1.5",
     "@der-cli/log": "^0.1.3",
     "@der-cli/utils": "^0.1.3",
     "fs-extra": "^10.0.0",
