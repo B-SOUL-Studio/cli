@@ -18,7 +18,6 @@ const SETTINGS = {
 
 /**
  * 执行命令, 开启子进程
- *
  */
 async function exec() {
   let targetPath = process.env.DER_CLI_TARGET_PATH; // -tp /xxx
