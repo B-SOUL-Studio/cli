@@ -4,7 +4,14 @@ const CACHE_DIR = 'dependencies';
 // 默认推荐用户安装最新版
 const DEFAULT_CORE_PACKAGE_VERSION = 'latest';
 
+// Cmd映射表: cmdName -> packageName
+const SETTINGS = {
+  init: '@der-cli/init',
+  go: '@der-cli/publish',
+};
+
 module.exports = {
   CACHE_DIR,
-  DEFAULT_CORE_PACKAGE_VERSION
+  DEFAULT_CORE_PACKAGE_VERSION,
+  SETTINGS
 }

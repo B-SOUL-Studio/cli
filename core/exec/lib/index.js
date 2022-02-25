@@ -7,14 +7,9 @@ const { exec: spawn } = require('@der-cli/utils');
 
 const {
   CACHE_DIR,
-  DEFAULT_CORE_PACKAGE_VERSION
+  DEFAULT_CORE_PACKAGE_VERSION,
+  SETTINGS
 } = require('./const');
-
-// Cmd映射表: cmdName -> packageName
-const SETTINGS = {
-  init: '@der-cli/init',
-  go: '@der-cli/publish',
-};
 
 /**
  * 执行命令, 开启子进程
