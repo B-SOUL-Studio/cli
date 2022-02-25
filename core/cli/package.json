@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/core",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "How to use der? 'Just derderder~'",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -26,7 +26,7 @@
   "dependencies": {
     "@der-cli/exec": "^0.1.9",
     "@der-cli/get-npm-info": "^0.1.9",
-    "@der-cli/init": "^0.1.9",
+    "@der-cli/init": "^0.1.10",
     "@der-cli/log": "^0.1.9",
     "colors": "^1.4.0",
     "commander": "^9.0.0",
