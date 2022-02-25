@@ -181,6 +181,7 @@ async function checkGlobalUpdate() {
   // }
 }
 
+// TODO
 process.on('unhandleRejection', (reason, p) => {
   console.log('Unhandled Rejection at: Promise', p, 'reason:', reason);
   throw reason;
