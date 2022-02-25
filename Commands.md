@@ -75,7 +75,7 @@ $ yarn add axios
 
 ```shell
 $ npm config set registry https://registry.npmjs.org/
-$ lerna publish
+$ yarn cp
 ```
 
 ## der 模板

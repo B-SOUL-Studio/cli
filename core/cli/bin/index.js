@@ -7,5 +7,6 @@ const log = require('@der-cli/log');
 if (importLocal(__filename)) {
   log.info('cli', '欢迎━(*｀∀´*)ノ亻! 使用 der-cli 本地版本')
 } else {
+  // console.log('欢迎━(*｀∀´*)ノ亻! 使用 der-cli 线上版本');
   require('../lib')(process.argv.slice(2));
 }

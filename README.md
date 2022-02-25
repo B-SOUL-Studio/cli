@@ -10,7 +10,6 @@
 > - [ ] Add support for other languages
 > - [ ] Add template for new project
 > - [ ] Add BDD tests
-> - [ ] Add commit standard
 
 ### What is 𝓓𝓮𝓻?
 

@@ -117,6 +117,7 @@ class Git {
 
   // 检查缓存主目录
   checkHomePath() {
+    console.log();
     log.notice('[Git]  ******** CHECK ********');
     if (!this.homePath) {
       if (process.env.CLI_HOME) {
