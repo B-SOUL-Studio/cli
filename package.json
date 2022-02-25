@@ -4,7 +4,8 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "c": "git add . && git cz && yarn p",
+    "c": "git add . && git cz",
+    "cp": "git add . && git cz && yarn p",
     "p": "lerna publish"
   },
   "devDependencies": {
