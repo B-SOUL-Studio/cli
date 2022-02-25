@@ -12,7 +12,6 @@
 	<img src="https://img.shields.io/github/license/der-cli/der-cli" alt="GPL"/>
 </p>
 
-
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
 ### What is 𝓓𝓮𝓻?
@@ -49,27 +48,23 @@ $ npm install @der-cli/core -g
 #### 初始化项目
 
 ```shell
-$ mikdir mytest 
+$ mikdir mytest
 $ cd mytest
 
 $ der init test-demo
 ```
 
-#### 发布Github/Gitee
+#### 发布 Github/Gitee
 
 ```shell
 $ der go
 ```
 
-发布tag
+发布 tag
 
 ```shell
 $ der go -re
 ```
-
-
-
-
 
 ## More
 
@@ -91,17 +86,19 @@ $ der -d
 
 see [docs](./Documents.md)
 
-
-
 ## TODO
 
-- [ ] Add [clean] command
-- [ ] Add support for other languages
-- [ ] Add template for new project
-- [ ] Add BDD tests
-- [ ] Add commit standard
-
-
+- [ ] Add feat:`clean` command
+- [ ] Add feat:support for other languages
+- [ ] Add test:BDD tests
+- [ ] Add feat:commit standard
+- [ ] Add fix:logs
+- [ ] Add docs:APP token
+- [ ] Add docs:cache
+- [ ] Add docs:template monorepo
+- [ ] Add docs:der flow
+- [ ] Add feat:template for new project
+- [ ] Add feat:add page
 
 ## License
 

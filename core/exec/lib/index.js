@@ -19,8 +19,8 @@ async function exec() {
 
   let storeDir = '';
   let pkg;
-  log.verbose('[exec]检查本地代码调试区:', targetPath || '未指定(默认远程代码)');
-  log.verbose('[exec]检查本地缓存路径:', homePath);
+  log.verbose('[exec] 检查本地代码调试区:', targetPath || '未指定(默认使用线上版本)');
+  log.verbose('[exec] 检查本地缓存路径:', homePath);
 
   const cmdObj = arguments[arguments.length - 1];
   const cmdName = cmdObj.name(); // init/create/...
@@ -30,8 +30,8 @@ async function exec() {
   if (!targetPath) {
     targetPath = path.resolve(homePath, CACHE_DIR); // 生成缓存路径
     storeDir = path.resolve(targetPath, 'node_modules');
-    log.verbose('[exec](默认)远程代码调试工作区:', targetPath);
-    log.verbose('[exec]远程代码调试缓存目录:', storeDir);
+    log.verbose('[exec] (默认)远程代码调试工作区:', targetPath);
+    log.verbose('[exec] 远程代码调试缓存目录:', storeDir);
 
     pkg = new Package({
       targetPath,
@@ -83,14 +83,14 @@ async function exec() {
         cwd: process.cwd(),
         stdio: 'inherit', // 控制台输出日志 
       });
-      log.verbose(`[exec]${cmdName}命令进程:`, child.pid);
+      log.verbose(`[exec] ${cmdName}命令进程:`, child.pid);
       child.on('error', e => {
         log.error(e);
         process.exit(1);
       });
       child.on('exit', e => {
         console.log();
-        log.verbose(`[exec]End with code ${e}\n`);
+        log.verbose(`[exec] End with code ${e}\n`);
         process.exit(e);
       });
     } catch (e) {
