@@ -2,6 +2,6 @@
 
 const request = require('../lib');
 
-describe('@der-cli-dev/request', () => {
+describe('@der-cli/request', () => {
   it('needs tests');
 });

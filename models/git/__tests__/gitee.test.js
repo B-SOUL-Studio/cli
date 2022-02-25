@@ -5,7 +5,7 @@ const should = require('should');
 const Gitee = require('../Git/Gitee');
 const GiteeRequest = require('../Git/GiteeRequest');
 
-const GIT_TOKEN_PATH = 'C:/Users/86136/.der-cli-dev/.git/.git_token'
+const GIT_TOKEN_PATH = 'C:/Users/86136/.der-cli/.git/.git_token'
 const OWN_GITEE_REPO = 'DailyCode1.0'
 
 function createGiteeInstance() {

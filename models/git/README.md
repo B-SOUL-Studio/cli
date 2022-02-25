@@ -1,11 +1,11 @@
-# `@der-cli-dev/git`
+# `@der-cli/git`
 
 > TODO: description
 
 ## Usage
 
 ```
-const git = require('@der-cli-dev/git');
+const git = require('@der-cli/git');
 
 // TODO: DEMONSTRATE API
 ```

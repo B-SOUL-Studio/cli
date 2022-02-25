@@ -1,7 +1,7 @@
 {
-  "name": "@der-cli-dev/init",
+  "name": "@der-cli/init",
   "version": "0.0.11",
-  "description": "der-cli-dev init",
+  "description": "der-cli init",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
   "license": "ISC",
@@ -20,19 +20,18 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
-    "@der-cli-dev/command": "^0.0.11",
-    "@der-cli-dev/log": "^0.0.11",
-    "@der-cli-dev/package": "^0.0.11",
-    "@der-cli-dev/request": "^0.0.11",
-    "@der-cli-dev/utils": "^0.0.11",
+    "@der-cli/command": "^0.0.11",
+    "@der-cli/log": "^0.0.11",
+    "@der-cli/package": "^0.0.11",
+    "@der-cli/request": "^0.0.11",
+    "@der-cli/utils": "^0.0.11",
     "ejs": "^3.1.6",
     "fs-extra": "^10.0.0",
     "glob": "^7.2.0",
     "inquirer": "^8.2.0",
     "kebab-case": "^1.0.1",
     "semver": "^7.3.5",
-    "spinner": "^0.3.4",
-    "user-home": "^3.0.0"
+    "spinner": "^0.3.4"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

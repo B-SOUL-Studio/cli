@@ -11,7 +11,6 @@
 > - [ ] Add template for new project
 > - [ ] Add BDD tests
 > - [ ] Add commit standard
-> - [ ] Replace UserHome with `const { homedir } = require('os')`
 > - [ ] Add build component project animation
 
 ### What is 𝓓𝓮𝓻?

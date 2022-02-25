@@ -1,7 +1,7 @@
 'use strict';
 
 const semver = require('semver');
-const log = require('@der-cli-dev/log');
+const log = require('@der-cli/log');
 const { LOWEST_NODE_VERSION } = require('./const');
 const {
   Error_EMPTY_ARGS,

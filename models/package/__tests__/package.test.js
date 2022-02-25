@@ -4,17 +4,17 @@ const fs = require('fs');
 const fse = require('fs-extra');
 const should = require('should');
 const Package = require('../lib');
-const { getNpmLatestVersion } = require('@der-cli-dev/get-npm-info');
+const { getNpmLatestVersion } = require('@der-cli/get-npm-info');
 const {
   Error_CONST_EMPTY_OPTION,
   Error_CONST_OPTION_IS_NOT_OBJECT,
 } = require('../lib/error');
 
-const TARGET_PATH = 'D:/repository/QuickStart/der-cli-dev/commands/init'
-const TARGET_PATH2 = 'C:\\Users\\86136\\.der-cli-dev\\dependencies'
-const STORE_DIR = 'C:\\Users\\86136\\.der-cli-dev\\dependencies\\node_modules'
-const PACKAGE_NAME = '@der-cli-dev/init'
-const PACKAGE_NAME_CONVERT = '@der-cli-dev_init'
+const TARGET_PATH = 'D:/repository/QuickStart/der-cli/commands/init'
+const TARGET_PATH2 = 'C:\\Users\\86136\\.der-cli\\dependencies'
+const STORE_DIR = 'C:\\Users\\86136\\.der-cli\\dependencies\\node_modules'
+const PACKAGE_NAME = '@der-cli/init'
+const PACKAGE_NAME_CONVERT = '@der-cli_init'
 const PACKAGE_VERSION = '1.0.0'
 const PACKAGE_LATEST_VERSION = 'latest'
 
@@ -102,7 +102,7 @@ describe('Package prepare', function () {
 describe('Package cacheFilePath属性测试', function () {
   it('获取cacheFilePath属性', function () {
     const intance = createPackageInstance();
-    const actulPath = `${STORE_DIR}\\_${PACKAGE_NAME_CONVERT}@${PACKAGE_VERSION}@@der-cli-dev\\init`
+    const actulPath = `${STORE_DIR}\\_${PACKAGE_NAME_CONVERT}@${PACKAGE_VERSION}@@der-cli\\init`
     intance.cacheFilePath.should.equal(actulPath);
   })
 })
@@ -110,7 +110,7 @@ describe('Package cacheFilePath属性测试', function () {
 describe('Package getSpecificCacheFilePath方法测试', function () {
   it('获取getSpecificCacheFilePath属性', function () {
     const intance = createPackageInstance();
-    const actulPath = `${STORE_DIR}\\_${PACKAGE_NAME_CONVERT}@${PACKAGE_VERSION}@@der-cli-dev\\init`
+    const actulPath = `${STORE_DIR}\\_${PACKAGE_NAME_CONVERT}@${PACKAGE_VERSION}@@der-cli\\init`
     intance.getSpecificCacheFilePath('1.0.0').should.equal(actulPath);
   })
 })
@@ -150,7 +150,7 @@ describe('Package install方法测试', function () {
       packageVersion: PACKAGE_LATEST_VERSION,
     })
     await pkg_intance.install();
-    (await pkg_intance.getRootFilePath()).should.equal('C:/Users/86136/.der-cli-dev/dependencies/node_modules/_@der-cli-dev_init@0.0.10@@der-cli-dev/init/lib/index.js')
+    (await pkg_intance.getRootFilePath()).should.equal('C:/Users/86136/.der-cli/dependencies/node_modules/_@der-cli_init@0.0.10@@der-cli/init/lib/index.js')
   })
   after(function () {
     if (fs.existsSync(STORE_DIR)) {
@@ -171,7 +171,7 @@ describe('Package update方法测试', function () {
     })
     await pkg_intance.update();
     // console.log(await pkg_intance.getRootFilePath());
-    (await pkg_intance.getRootFilePath()).should.equal('C:/Users/86136/.der-cli-dev/dependencies/node_modules/_@der-cli-dev_init@0.0.10@@der-cli-dev/init/lib/index.js')
+    (await pkg_intance.getRootFilePath()).should.equal('C:/Users/86136/.der-cli/dependencies/node_modules/_@der-cli_init@0.0.10@@der-cli/init/lib/index.js')
   })
   after(function () {
     if (fs.existsSync(STORE_DIR)) {

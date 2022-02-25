@@ -1,11 +1,11 @@
-# `@der-cli-dev/publish`
+# `@der-cli/publish`
 
 > TODO: description
 
 ## Usage
 
 ```
-const publish = require('@der-cli-dev/publish');
+const publish = require('@der-cli/publish');
 
 // TODO: DEMONSTRATE API
 ```

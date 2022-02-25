@@ -18,7 +18,7 @@ Trace:
 
 npm manifest: 
   {
-    "name": "@der-cli-dev/init",
+    "name": "@der-cli/init",
     "version": "0.0.7",
     "description": "der-cli-dev init",
     "author": "song <3224266014@qq.com>",
@@ -39,11 +39,11 @@ npm manifest:
       "test": "echo \"Error: run tests from root\" && exit 1"
     },
     "dependencies": {
-      "@der-cli-dev/command": "file:../../models/command",
-      "@der-cli-dev/log": "file:../../utils/log",
-      "@der-cli-dev/package": "file:../../models/package",
-      "@der-cli-dev/utils": "file:../../utils/utils",
-      "@der-cli-dev/request": "file:../../utils/request",
+      "@der-cli/command": "file:../../models/command",
+      "@der-cli/log": "file:../../utils/log",
+      "@der-cli/package": "file:../../models/package",
+      "@der-cli/utils": "file:../../utils/utils",
+      "@der-cli/request": "file:../../utils/request",
       "ejs": "^3.1.6",
       "fs-extra": "^10.0.0",
       "glob": "^7.2.0",

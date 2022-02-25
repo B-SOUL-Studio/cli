@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const importLocal = require('import-local');
-const log = require('@der-cli-dev/log');
+const log = require('@der-cli/log');
 
 // 生产/开发环境
 if (importLocal(__filename)) {

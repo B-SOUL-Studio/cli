@@ -4,14 +4,15 @@ module.exports = core;
 
 const path = require('path');
 const semver = require('semver');
-const userHome = require('user-home');
+const { homedir } = require('os')
+const userHome = homedir();
 const pathExists = require('path-exists').sync;
 const { Command } = require('commander');
 const rootCheck = require('root-check');
 const colors = require('colors/safe');
 const pkg = require('../package.json');
-const log = require('@der-cli-dev/log');
-const exec = require('@der-cli-dev/exec');
+const log = require('@der-cli/log');
+const exec = require('@der-cli/exec');
 const {
   DEFAULT_CLI_HOME,
   DER_CLI_LOGO
@@ -52,7 +53,7 @@ function registerCommand() {
   const options = program.opts();
 
   program
-    .name(Object.keys(pkg.bin)[0]) // der-dev
+    .name(Object.keys(pkg.bin)[0]) // der
     .description(pkg.description)
     .usage('<command> [options]')
     .version(pkg.version)
@@ -147,7 +148,7 @@ function checkEnv() {
   }
   createDefaultConfig();
   // log.verbose('环境变量', process.env.DER_CLI_HOME_PATH);
-  // C:\Users\hostname\.der-cli-dev
+  // C:\Users\hostname\.der-cli
 }
 
 // 1.5 创建默认配置文件
@@ -169,7 +170,7 @@ async function checkGlobalUpdate() {
   const currentVersion = pkg.version;
   const npmName = pkg.name;
   // 获取 npm 所有版本号
-  const { getNpmSemverVersion } = require('@der-cli-dev/get-npm-info');
+  const { getNpmSemverVersion } = require('@der-cli/get-npm-info');
   const lastVersion = await getNpmSemverVersion(currentVersion, npmName);
   // 判断是否需要更新
   if (lastVersion && semver.gt(lastVersion, currentVersion)) {

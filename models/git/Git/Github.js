@@ -35,9 +35,15 @@ class Github extends GitServer {
 
   // 获取仓库详情
   getRepo(owner, repo) {
-    return this.request.get(`/repos/${owner}/${repo}`).then(response => {
-      return this.handleResponse(response);
-    });
+    return new Promise((resolve, reject) => {
+      this.request.get(`/repos/${owner}/${repo}`)
+        .then(response => {
+          resolve(this.handleResponse(response));
+          // resolve(response);
+        }).catch(error => {
+          reject(error);
+        });
+    })
   };
 
   // 创建个人仓库

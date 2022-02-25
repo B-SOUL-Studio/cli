@@ -1,11 +1,11 @@
-# `@der-cli-dev/format-path`
+# `@der-cli/format-path`
 
 > TODO: description
 
 ## Usage
 
 ```
-const formatPath = require('@der-cli-dev/format-path');
+const formatPath = require('@der-cli/format-path');
 
 // TODO: DEMONSTRATE API
 ```

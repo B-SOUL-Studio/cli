@@ -2,6 +2,6 @@
 
 const publish = require('..');
 
-describe('@der-cli-dev/publish', () => {
-    it('needs tests');
+describe('@der-cli/publish', () => {
+  it('needs tests');
 });

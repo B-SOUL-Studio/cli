@@ -2,6 +2,6 @@
 
 const Github = require('../Git/Github');
 
-describe('@der-cli-dev/git', () => {
+describe('@der-cli/git', () => {
   it('needs tests');
 });

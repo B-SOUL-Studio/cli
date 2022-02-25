@@ -1,4 +1,4 @@
-const DEFAULT_CLI_HOME = '.der-cli-dev';
+const DEFAULT_CLI_HOME = '.der-cli';
 const GIT_ROOT_DIR = '.git';
 const GIT_SERVER_FILE = '.git_server';
 const GIT_TOKEN_FILE = '.git_token';

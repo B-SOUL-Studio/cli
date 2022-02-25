@@ -1,5 +1,5 @@
 {
-  "name": "@der-cli-dev/git",
+  "name": "@der-cli/git",
   "version": "0.0.11",
   "description": "Git Flow models",
   "author": "song <3224266014@qq.com>",
@@ -30,15 +30,17 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli-dev/log": "^0.0.11",
-    "@der-cli-dev/utils": "^0.0.11",
+    "@der-cli/log": "^0.0.11",
+    "@der-cli/utils": "^0.0.11",
     "axios": "^0.26.0",
+    "colors": "^1.4.0",
     "fs-extra": "^10.0.0",
+    "listr": "^0.14.3",
     "mocha": "^9.2.1",
+    "rxjs": "^7.5.4",
     "semver": "^7.3.5",
     "should": "^13.2.3",
-    "simple-git": "^3.2.6",
-    "user-home": "^3.0.0"
+    "simple-git": "^3.2.6"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

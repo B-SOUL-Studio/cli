@@ -1,5 +1,5 @@
 {
-  "name": "@der-cli-dev/core",
+  "name": "@der-cli/core",
   "version": "0.0.11",
   "description": "How to use der? 'Just derderder~'",
   "author": "song <3224266014@qq.com>",
@@ -7,7 +7,7 @@
   "license": "ISC",
   "main": "bin/index.js",
   "bin": {
-    "der-dev": "bin/index.js"
+    "der": "bin/index.js"
   },
   "directories": {
     "lib": "lib",
@@ -23,18 +23,17 @@
     "test": "echo \"Error: run tests from core\""
   },
   "dependencies": {
-    "@der-cli-dev/exec": "^0.0.11",
-    "@der-cli-dev/get-npm-info": "^0.0.11",
-    "@der-cli-dev/init": "^0.0.11",
-    "@der-cli-dev/log": "^0.0.11",
+    "@der-cli/exec": "^0.0.11",
+    "@der-cli/get-npm-info": "^0.0.11",
+    "@der-cli/init": "^0.0.11",
+    "@der-cli/log": "^0.0.11",
     "colors": "^1.4.0",
     "commander": "^9.0.0",
     "dotenv": "^16.0.0",
     "import-local": "^3.1.0",
     "minimist": "^1.2.5",
     "root-check": "^1.0.0",
-    "semver": "^7.3.5",
-    "user-home": "^3.0.0"
+    "semver": "^7.3.5"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

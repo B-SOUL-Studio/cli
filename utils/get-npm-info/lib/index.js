@@ -20,7 +20,7 @@ function getNpmInfo(npmName, registry) {
     return null;
   }
   const registryUrl = registry || getDefaultRegistry();
-  // https://registry.npmjs.org/@der-cli-dev/core
+  // https://registry.npmjs.org/@der-cli/core
   const npmInfoUrl = urlJoin(registryUrl, npmName);
   return axios.get(npmInfoUrl).then(response => {
     if (response.status === 200) {

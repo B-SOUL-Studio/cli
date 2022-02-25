@@ -1,5 +1,5 @@
 {
-  "name": "@der-cli-dev/publish",
+  "name": "@der-cli/publish",
   "version": "0.0.11",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
@@ -27,9 +27,9 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli-dev/command": "^0.0.11",
-    "@der-cli-dev/git": "^0.0.11",
-    "@der-cli-dev/log": "^0.0.11"
+    "@der-cli/command": "^0.0.11",
+    "@der-cli/git": "^0.0.11",
+    "@der-cli/log": "^0.0.11"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }

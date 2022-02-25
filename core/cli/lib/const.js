@@ -1,4 +1,4 @@
-const DEFAULT_CLI_HOME = '.der-cli-dev';
+const DEFAULT_CLI_HOME = '.der-cli';
 
 const DER_CLI_LOGO = `  ________              
   ___  __ \\____________    

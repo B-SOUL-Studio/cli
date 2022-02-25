@@ -2,6 +2,6 @@
 
 const log = require('..');
 
-describe('@der-cli-dev/log', () => {
+describe('@der-cli/log', () => {
     it('needs tests');
 });

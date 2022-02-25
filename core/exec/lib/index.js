@@ -1,19 +1,19 @@
 'use strict';
 
 const path = require('path');
-const Package = require('@der-cli-dev/package');
-const log = require('@der-cli-dev/log');
-const { exec: spawn } = require('@der-cli-dev/utils');
+const Package = require('@der-cli/package');
+const log = require('@der-cli/log');
+const { exec: spawn } = require('@der-cli/utils');
 
 const {
   CACHE_DIR,
   DEFAULT_CORE_PACKAGE_VERSION
 } = require('./const');
 
-// 映射表 cmdName -> packageName
+// Cmd映射表: cmdName -> packageName
 const SETTINGS = {
-  init: '@der-cli-dev/init',
-  go: '@der-cli-dev/publish',
+  init: '@der-cli/init',
+  go: '@der-cli/publish',
 };
 
 /**
@@ -22,7 +22,7 @@ const SETTINGS = {
  */
 async function exec() {
   let targetPath = process.env.DER_CLI_TARGET_PATH; // -tp /xxx
-  const homePath = process.env.DER_CLI_HOME_PATH; // C:\user\username\.der-cli-dev 
+  const homePath = process.env.DER_CLI_HOME_PATH; // C:\user\username\.der-cli 
 
   let storeDir = '';
   let pkg;

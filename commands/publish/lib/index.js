@@ -3,9 +3,9 @@
 const fs = require('fs');
 const path = require('path');
 const fse = require('fs-extra');
-const Command = require('@der-cli-dev/command');
-const Git = require('@der-cli-dev/git');
-const log = require('@der-cli-dev/log');
+const Command = require('@der-cli/command');
+const Git = require('@der-cli/git');
+const log = require('@der-cli/log');
 const {
   Error_PACKAGE_JSON_NOT_FOUND,
   Error_PACKAGE_JSON_INFO_NOT_COMPLETE
@@ -28,11 +28,8 @@ class PublishCommand extends Command {
       const git = new Git(this.projectInfo, this.options);
       await git.prepare(); // 代码提交准备、初始化仓库
       await git.commit() // 提交代码
-      await git.releaseTag() // 发布 tag
-      // 3.云构建、云发布
-      const endTime = new Date().getTime();
-      log.success('[Publish]本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
-
+      // 发布 tag
+      await git.releaseTag(startTime)
     } catch (e) {
       log.error(e);
       if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {
@@ -45,7 +42,7 @@ class PublishCommand extends Command {
     // 1.检查项目是否为npm项目
     const projectPath = process.cwd();
     const pkgPath = path.join(projectPath, 'package.json');
-    log.verbose('[Publish]项目包路径:', pkgPath);
+    log.verbose('[Publish] 项目包路径:', pkgPath);
     if (!fs.existsSync(pkgPath)) {
       Error_PACKAGE_JSON_NOT_FOUND()
     }

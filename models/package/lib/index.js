@@ -5,13 +5,13 @@ const fse = require('fs-extra');
 const pkgDir = require('pkg-dir').sync;
 const pathExists = require('path-exists').sync;
 const npminstall = require('npminstall');
-const { isObject } = require('@der-cli-dev/utils');
-const formatPath = require('@der-cli-dev/format-path');
-const log = require('@der-cli-dev/log');
+const { isObject } = require('@der-cli/utils');
+const formatPath = require('@der-cli/format-path');
+const log = require('@der-cli/log');
 const {
   getDefaultRegistry,
   getNpmLatestVersion
-} = require('@der-cli-dev/get-npm-info');
+} = require('@der-cli/get-npm-info');
 const {
   Error_EMPTY_OPTION,
   Error_OPTION_IS_NOT_OBJECT
@@ -105,7 +105,7 @@ class Package {
       });
     }
     // TODO: downloadTemplate时此行未打印?
-    log.info(`检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
+    log.info(`[Package] 检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
     this.packageVersion = latestPackageVersion;
   }
 

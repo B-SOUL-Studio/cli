@@ -1,11 +1,11 @@
-# `@der-cli-dev/Command`
+# `@der-cli/Command`
 
 > TODO: description
 
 ## Usage
 
 ```
-const command = require('@der-cli-dev/Command');
+const command = require('@der-cli/Command');
 
 // TODO: DEMONSTRATE API
 ```

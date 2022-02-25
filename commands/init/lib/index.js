@@ -7,11 +7,12 @@ const fse = require('fs-extra');
 const glob = require('glob');
 const ejs = require('ejs');
 const semver = require('semver');
-const userHome = require('user-home');
-const Command = require('@der-cli-dev/command');
-const Package = require('@der-cli-dev/package');
-const log = require('@der-cli-dev/log');
-const { spinnerStart, sleep, execAsync } = require('@der-cli-dev/utils');
+const { homedir } = require('os')
+const userHome = homedir();
+const Command = require('@der-cli/command');
+const Package = require('@der-cli/package');
+const log = require('@der-cli/log');
+const { spinnerStart, sleep, execAsync } = require('@der-cli/utils');
 const getProjectTemplate = require('./getProjectTemplate');
 const {
   Error_PROJECT_TEMPLATE_IS_NOT_EXSITS,
@@ -40,8 +41,8 @@ class InitCommand extends Command {
     this.projectName = this._argv[0] || '';
     // this.force = !!this._cmd.force;
     this.force = !!this._argv[1].force;
-    log.verbose('[init]工程名称:', this.projectName);
-    log.verbose('[init]强制清空目录:', this.force);
+    log.verbose('[init] 工程名称:', this.projectName);
+    log.verbose('[init] 强制清空目录:', this.force);
   }
 
   // 默认执行
@@ -101,7 +102,7 @@ class InitCommand extends Command {
         });
         if (confirmDelete) {
           // 清空当前目录
-          log.verbose('[init]目录已清空:', localPath)
+          log.verbose('[init] 目录已清空:', localPath)
           fse.emptyDirSync(localPath);
         }
       }
@@ -263,11 +264,11 @@ class InitCommand extends Command {
   async downloadTemplate() {
     // console.log(this.projectInfo, this.template);
 
-    const { projectTemplate } = this.projectInfo; // @der-cli-dev/xxx-template
+    const { projectTemplate } = this.projectInfo; // @der-cli/xxx-template
     // 将用户选中的模板与API接口返回的模板进行对比，提取出用户选中的模板
     const templateInfo = this.template.find(item => item.npmName === projectTemplate);
-    const targetPath = path.resolve(userHome, '.der-cli-dev', 'template');
-    const storeDir = path.resolve(userHome, '.der-cli-dev', 'template', 'node_modules');
+    const targetPath = path.resolve(userHome, '.der-cli', 'template');
+    const storeDir = path.resolve(userHome, '.der-cli', 'template', 'node_modules');
     const { npmName, version } = templateInfo;
     // 保存用户选择后的模板信息
     this.templateInfo = templateInfo;
@@ -281,7 +282,7 @@ class InitCommand extends Command {
 
     if (!await templateNpm.exists()) {
       // 如果模板不存在，则下载
-      const spinner = spinnerStart('[init]正在下载模板...');
+      const spinner = spinnerStart('[init] 正在下载模板...');
       await sleep();
       try {
         await templateNpm.install();
@@ -290,13 +291,13 @@ class InitCommand extends Command {
       } finally {
         spinner.stop(true);
         if (await templateNpm.exists()) {
-          log.success('[init]下载模板...done');
+          log.success('[init] 下载模板', '...done');
           this.templateNpm = templateNpm;
         }
       }
     } else {
       // 如果模板存在，则检测or更新
-      const spinner = spinnerStart('正在更新模板...');
+      const spinner = spinnerStart('[init] 正在更新模板...');
       await sleep();
       try {
         await templateNpm.update();
@@ -305,7 +306,7 @@ class InitCommand extends Command {
       } finally {
         spinner.stop(true);
         if (await templateNpm.exists()) {
-          log.success(`更新模板成功(${npmName})`);
+          log.success(`[init] 更新模板成功(${npmName})`);
           this.templateNpm = templateNpm;
         }
       }
@@ -335,9 +336,9 @@ class InitCommand extends Command {
 
   async installNormalTemplate() {
     const { cacheFilePath } = this.templateNpm;
-    log.verbose('[init]模板缓存路径:', cacheFilePath);
+    log.verbose('[init] 模板缓存路径:', cacheFilePath);
     // 拷贝模板代码至当前目录
-    let spinner = spinnerStart('正在安装模板...');
+    let spinner = spinnerStart('[init] 正在安装模板...');
     await sleep();
     const targetPath = process.cwd(); // 终端执行的路径
     try {
@@ -350,7 +351,7 @@ class InitCommand extends Command {
       throw e;
     } finally {
       spinner.stop(true);
-      log.success('[init]模板安装...done');
+      log.success('[init] 模板安装', '...done');
     }
 
     const templateIgnore = this.templateInfo.ignore || [];
@@ -376,7 +377,7 @@ class InitCommand extends Command {
     if (await this.templateNpm.exists()) {
       const rootFile = this.templateNpm.getRootFilePath();
       if (fs.existsSync(rootFile)) {
-        log.notice('[init]开始执行自定义模板...');
+        log.notice('[init] 开始执行自定义模板...');
         const templatePath = path.resolve(this.templateNpm.cacheFilePath, 'template');
         const options = {
           templateInfo: this.templateInfo,
@@ -388,15 +389,29 @@ class InitCommand extends Command {
         const code = `require('${rootFile}')(${JSON.stringify(options)})`;
         log.verbose('code', code);
         await execAsync('node', ['-e', code], { stdio: 'inherit', cwd: process.cwd() });
-        log.success('[init]自定义模板安装...done');
+        log.success('[init] 自定义模板安装', '...done');
       } else {
         Error_COSTOM_TEMPLATE_INDEX_IS_NOT_EXISTS()
       }
     }
+    //  {
+    //   "name": "vue2自定义模板",
+    //   "npmName": "@der-cli/vue2-standard-custom-template",
+    //   "version": "1.0.0",
+    //   "type": "costom",
+    //   "installCommand": "yarn --registry=https://registry.npm.taobao.org",
+    //   "startCommand": "yarn serve",
+    //   "tag": [
+    //     "project"
+    //   ],
+    //   "ignore": [
+    //     "**/public/**"
+    //   ]
+    // }
   }
 
   async ejsRender(options) {
-    log.verbose('ejsRender:', this.projectInfo);
+    log.verbose('ejsRender:', this.projectInfo.projectName);
     const dir = process.cwd();
     const projectInfo = this.projectInfo;
     return new Promise((resolve, reject) => {

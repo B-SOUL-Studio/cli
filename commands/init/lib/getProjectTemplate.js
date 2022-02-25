@@ -1,4 +1,4 @@
-const request = require('@der-cli-dev/request');
+const request = require('@der-cli/request');
 
 module.exports = function () {
   return request({
