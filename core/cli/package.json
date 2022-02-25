@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/core",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "How to use der? 'Just derderder~'",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -23,7 +23,7 @@
     "test": "echo \"Error: run tests from core\""
   },
   "dependencies": {
-    "@der-cli/exec": "^0.1.1",
+    "@der-cli/exec": "^0.1.2",
     "@der-cli/get-npm-info": "^0.1.0",
     "@der-cli/init": "^0.1.0",
     "@der-cli/log": "^0.1.0",
