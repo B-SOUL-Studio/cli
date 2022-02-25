@@ -4,7 +4,6 @@ const path = require('path');
 const Package = require('@der-cli/package');
 const log = require('@der-cli/log');
 const { exec: spawn } = require('@der-cli/utils');
-
 const {
   CACHE_DIR,
   DEFAULT_CORE_PACKAGE_VERSION,
