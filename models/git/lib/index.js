@@ -104,7 +104,6 @@ class Git {
   /* prepare ********************************************/
 
   async prepare() {
-    log.verbose('[Git]  ******** CHECK ********');
     this.checkHomePath()
     await this.checkGitServer()
     await this.checkGitToken()
@@ -118,6 +117,7 @@ class Git {
 
   // 检查缓存主目录
   checkHomePath() {
+    log.notice('[Git]  ******** CHECK ********');
     if (!this.homePath) {
       if (process.env.CLI_HOME) {
         this.homePath = path.resolve(userHome, process.env.DER_CLI_HOME_PATH);
@@ -222,8 +222,8 @@ class Git {
       }
       writeFile(ownerPath, owner);
       writeFile(loginPath, login);
-      log.success('[Git] 仓库类型更新:', `[${owner}] => ${ownerPath}...done`);
-      log.success('[Git] 仓库所有者更新:', `[${login}] => ${loginPath}...done`);
+      log.verbose('[Git] 仓库类型更新:', `[${owner}] => ${ownerPath}...done`);
+      log.verbose('[Git] 仓库所有者更新:', `[${login}] => ${loginPath}...done`);
     } else {
       log.success('[Git] 仓库类型:', owner === 'org' ? '组织仓库' : '个人仓库');
       log.success('[Git] 仓库所有者:', login);
@@ -416,7 +416,7 @@ class Git {
         });
       }
       await this.git.commit(message);
-      log.success('[Git] 本地commit提交', '...done');
+      log.success('[Git] git commit -m', `'${message}'`);
     }
   };
 
@@ -451,6 +451,8 @@ class Git {
   /* commit 提交 *********************************************/
 
   async commit() {
+    console.log();
+    log.notice('[Git]  ******** COMMIT ********');
     await this.getCorrectVersion() // 1.获取正确的版本号
     await this.checkStash(); // 2.检查Stash区
     await this.checkConflicted(); // 3.检查是否代码冲突
@@ -462,8 +464,6 @@ class Git {
 
   // 生成开发分支
   async getCorrectVersion() {
-    console.log();
-    log.notice('[Git]  ******** COMMIT ********');
     // 1.1 获取远程开发分支
     log.notice(`[Git] 获取远程${colors.cyan('release')}分支...`);
     // ['1.1.1', '1.0.0']

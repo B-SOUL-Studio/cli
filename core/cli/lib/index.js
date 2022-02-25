@@ -35,6 +35,9 @@ async function core() {
     registerCommand();
   } catch (e) {
     log.error(`${e}`);
+    if (program.debug) {
+      console.log(e);
+    }
   }
 }
 
