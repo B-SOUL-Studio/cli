@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/git",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Git Flow models",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
