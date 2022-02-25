@@ -4,7 +4,7 @@
   "description": "der-cli init",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "GPL",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",

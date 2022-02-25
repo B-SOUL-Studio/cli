@@ -4,7 +4,7 @@
   "description": "本地 Package 依赖下载、更新、缓存核心实现",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
-  "license": "ISC",
+  "license": "GPL",
   "main": "lib/index.js",
   "directories": {
     "lib": "lib",

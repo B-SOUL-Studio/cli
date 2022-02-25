@@ -23,7 +23,7 @@ npm manifest:
     "description": "> TODO: description",
     "author": "song <3224266014@qq.com>",
     "homepage": "https://github.com/der-cli/der-cli#readme",
-    "license": "ISC",
+    "license": "GPL",
     "main": "lib/index.js",
     "directories": {
       "lib": "lib",

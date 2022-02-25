@@ -23,7 +23,7 @@ npm manifest:
     "description": "der-cli-dev init",
     "author": "song <3224266014@qq.com>",
     "homepage": "",
-    "license": "ISC",
+    "license": "GPL",
     "main": "lib/index.js",
     "directories": {
       "lib": "lib",

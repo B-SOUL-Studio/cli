@@ -408,16 +408,19 @@ class Git {
       await this.git.add(status.deleted);
       await this.git.add(status.modified);
       await this.git.add(status.renamed);
-      let message;
-      while (!message) {
-        message = await inquirer({
-          type: 'text',
-          message: '请输入commit信息:',
-          defaultValue: '',
-        });
+      if (!this.release) {
+        let message;
+        while (!message) {
+          message = await inquirer({
+            type: 'text',
+            message: '请输入commit信息:',
+            defaultValue: '',
+          });
+        }
+        await this.git.commit(message);
+        log.success('[Git] git commit -m', `'${message}'`);
       }
-      await this.git.commit(message);
-      log.success('[Git] git commit -m', `'${message}'`);
+
     }
   };
 
@@ -444,7 +447,7 @@ class Git {
       } else {
         log.error(err.message);
       }
-      log.error('[Git] 请重新执行 der publish, 如仍然报错请尝试删除 .git 目录后重试');
+      log.error('[Git] 请重新执行 der go, 如仍然报错请尝试删除 .git 目录后重试');
       process.exit(0);
     });
   };
