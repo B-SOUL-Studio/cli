@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/package",
-  "version": "0.0.11",
+  "version": "0.1.0",
   "description": "本地 Package 依赖下载、更新、缓存核心实现",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -20,10 +20,10 @@
     "test": "mocha __tests__/package.test.js"
   },
   "dependencies": {
-    "@der-cli/format-path": "^0.0.11",
-    "@der-cli/get-npm-info": "^0.0.11",
-    "@der-cli/log": "^0.0.11",
-    "@der-cli/utils": "^0.0.11",
+    "@der-cli/format-path": "^0.1.0",
+    "@der-cli/get-npm-info": "^0.1.0",
+    "@der-cli/log": "^0.1.0",
+    "@der-cli/utils": "^0.1.0",
     "fs-extra": "^10.0.0",
     "mocha": "^9.2.1",
     "npminstall": "^5.4.1",
