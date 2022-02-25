@@ -2,7 +2,7 @@
   "name": "der-cli",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "MIT",
+  "license": "GPL",
   "scripts": {
     "c": "git add . && git cz",
     "cp": "git add . && git cz && yarn p",

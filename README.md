@@ -1,15 +1,19 @@
 <p align="center">
 	<img width='100px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/logo-der.png' alt='der'/>
 </p>
+<p align="center">
+    <a href="https://www.npmjs.org/package/@der-cli/core" target='_blank'>
+    	<img src="https://img.shields.io/npm/v/@der-cli/core">
+    </a>
+    <a href="https://npmcharts.com/compare/@der-cli/core?minimal=true" target='_blank'>
+    	<img src="https://img.shields.io/npm/dt/@der-cli/core.svg">
+    </a>
+    <img src="https://img.shields.io/github/stars/der-cli/der-cli.svg?logo=github" alt="star"/><br>
+	<img src="https://img.shields.io/github/license/der-cli/der-cli" alt="GPL"/>
+</p>
+
 
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
-
-> TODO
->
-> - [ ] Add [clean] command
-> - [ ] Add support for other languages
-> - [ ] Add template for new project
-> - [ ] Add BDD tests
 
 ### What is 𝓓𝓮𝓻?
 
@@ -42,15 +46,40 @@
 $ npm install @der-cli/core -g
 ```
 
-### More
+#### 初始化项目
 
-清空本地缓存：
+```shell
+$ mikdir mytest 
+$ cd mytest
+
+$ der init test-demo
+```
+
+#### 发布Github/Gitee
+
+```shell
+$ der go
+```
+
+发布tag
+
+```shell
+$ der go -re
+```
+
+
+
+
+
+## More
+
+#### 清空本地缓存
 
 ```shell
 $ der clean
 ```
 
-DEBUG 模式：
+#### DEBUG 模式
 
 ```shell
 $ der --debug
@@ -58,13 +87,21 @@ $ der --debug
 $ der -d
 ```
 
-调试本地包：
+#### 调试本地包
 
-```shell
-$ der init --targetPath /Users/[username]/your/der-cli/core/init/
-# or
-$ der init -tp /Users/[username]/your/der-cli/core/init/
-```
+see [docs](./Documents.md)
+
+
+
+## TODO
+
+- [ ] Add [clean] command
+- [ ] Add support for other languages
+- [ ] Add template for new project
+- [ ] Add BDD tests
+- [ ] Add commit standard
+
+
 
 ## License
 
