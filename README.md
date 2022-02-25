@@ -11,7 +11,6 @@
 > - [ ] Add template for new project
 > - [ ] Add BDD tests
 > - [ ] Add commit standard
-> - [ ] Add build component project animation
 
 ### What is 𝓓𝓮𝓻?
 
