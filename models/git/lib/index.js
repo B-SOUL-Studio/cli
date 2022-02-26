@@ -468,7 +468,7 @@ class Git {
     await this.getCorrectVersion() // 1.获取正确的版本号
     await this.checkStash(); // 2.检查Stash区
     await this.checkConflicted(); // 3.检查是否代码冲突
-    await this.checkNotCommitted(); // 4.检查是否有未提交
+    // await this.checkNotCommitted(); // 4.检查是否有未提交
     await this.checkoutBranch(this.branch); // 5.切换开发分支
     await this.pullRemoteMasterAndBranch(); // 6.合并远程master分支和开发分支代码
     await this.pushRemoteRepo(this.branch); // 7. 将开发分支push到远程仓库
