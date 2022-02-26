@@ -105,7 +105,7 @@ Located at `C:\users\[hostname]\der-cli\.git`
 
 #### APP Token
 
-在本地缓存 `.git` 目录下，有一个名为 `.git_token` 的文件，用于保存 Github / Gitee 的 [App Token]() 信息，这将用于 [Git Flow](#Git Flow 自动化) 流程。包括以下值：
+在本地缓存 `.git` 目录下，有一个名为 `.git_token` 的文件，用于保存 Github / Gitee 的 [App Token]() 信息，这将用于 [Git Flow](#Git_Flow_自动化) 流程。包括以下值：
 
 - xxxxxxxxxxxxxxxxxxxxxx (随机字符串)
 

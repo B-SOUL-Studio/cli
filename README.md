@@ -9,11 +9,11 @@
     	<img src="https://img.shields.io/npm/dt/@der-cli/core">
     </a>
     <img src="https://img.shields.io/github/stars/der-cli/der-cli.svg?logo=github" alt="star"/><br>
+    <a href="https://www.lernajs.cn/" target='_blank'>
+    	<img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg">
+    </a>
 	<img src="https://img.shields.io/github/license/der-cli/der-cli" alt="GPL"/>
 </p>
-
-
-
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
 ### What is 𝓓𝓮𝓻?
@@ -112,9 +112,8 @@ see [docs](./Documents.md)
 
 ## TODO
 
-- [ ] Add test:BDD tests
-- [ ] Reconstruction with TS
-- [ ] Add feat:add page(may)
+- [ ] Add test: BDD tests
+- [ ] Add feat: add page cmd(may)
 
 
 
@@ -128,7 +127,7 @@ see [docs](./Documents.md)
 
 #### 1.执行完初始化后，可以直接提交代码吗？
 
-答：可以。前提是准备好你的[docs: App Token](https://github.com/der-cli/der-cli/blob/master/Documents.md#App-Token).
+答：可以。前提是准备好你的 [App Token](https://github.com/der-cli/der-cli/blob/master/Documents.md#App-Token).
 
 
 
