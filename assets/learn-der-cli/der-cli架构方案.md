@@ -1,6 +1,6 @@
 # der-cli 架构图
 
-![](./der-cli 架构图.png)
+![der-cli](https://cdn.jsdelivr.net/gh/yesmore/img/img/der-cli架构图.png)
 
 ## 脚手架核心框架
 
@@ -42,44 +42,19 @@
 
 
 
-## 发布体系
-
-> WebSocket服务体系
-
-- [ ] 项目发布
-- [ ] 组件发布
-- [ ] 发布模式（测试/生产环境发布模式，通过WebSocket云构建实现）
-
 
 
 ## Open API
 
 - [ ] 项目/组件模板
-- [ ] 静态资源查询
-- [ ] 配置信息
 
 ### 数据体系
 
-- [ ] MySQL - 组件模板信息
 - [ ] MongoDB - 项目模板信息
 
 
 
-## WebSocket服务体系
 
-- [ ] 云构建
-- [ ] 云发布
-- [ ] 发布模式
-
-### 远程缓存体系-云构建
-
-- [ ] Redis
-- [ ] 服务端缓存
-
-### 资源体系-云发布
-
-- [ ] OSS
-- [ ] CDN
 
 
 
@@ -98,7 +73,7 @@
 - 命令 `commands`
   - [x] 初始化
   - [x] 发布
-  - [ ] 清除缓存
+  - [x] 清除缓存
 - 模型层 `models`
   - [x] Command 命令
   - [x] Project 项目
@@ -107,7 +82,6 @@
   - [x] Git 仓库
 - 支撑模块 `utils`
   - [x] Git 操作
-  - [x] 云构建
   - [x] 工具方法
   - [x] API 请求
 

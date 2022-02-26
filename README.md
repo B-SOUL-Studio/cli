@@ -36,7 +36,7 @@
 - [x] Create a new project
 - [x] Auto commit & create a remote repo(github/gitee)
 - [x] Version control
-- [ ] Specification submission code
+- [x] Specification submission code
 - [ ] then...
 
 ## Quick Start
@@ -61,7 +61,7 @@ $ der init test-demo
 
 > 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 
-> 注意：`der go` 会将代码提交至项目**同名**远程仓库中(package.json的name属性值)，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [docs: APP TOKEN](https://github.com/der-cli/der-cli/blob/master/Documents.md#APP_TOKEN)
+> 注意：`der go` 会将代码提交至项目**同名**远程仓库中(package.json的name属性值)，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [docs: App Token](https://github.com/der-cli/der-cli/blob/master/Documents.md#App-Token).
 
 ```shell
 $ der go
@@ -71,19 +71,19 @@ $ der go
 
 > 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
 >
-> 例: dev/1.0.1 => release/1.0.1，详见 [docs: Git Flow](https://github.com/der-cli/der-cli/blob/master/Documents.md#Git_Flow)
+> 例: dev/1.0.1 => release/1.0.1，详见 [docs: Git_Flow](https://github.com/der-cli/der-cli/blob/master/Documents.md#Git-Flow-自动化).
 
 ```shell
 $ der go -release
-# or 
+# 简写
 $ der go -re
 ```
 
-
-
 ## More
 
-#### 清空本地缓存
+#### 清空脚手架本地缓存
+
+> 关于脚手架缓存，详见 [docs: Cache 缓存](https://github.com/der-cli/der-cli/blob/master/Documents.md#Cache-缓存).
 
 ```shell
 # Default: clean all
@@ -102,23 +102,18 @@ $ der --debug
 $ der -d
 ```
 
+更多命令 [详情](https://github.com/der-cli/der-cli/blob/master/Documents.md)
+
 #### 调试本地包
 
 see [docs](./Documents.md)
 
+
+
 ## TODO
 
-- [x] Add feat:`clean` command
-- [x] Add feat:support for other languages
 - [ ] Add test:BDD tests
-- [ ] Add feat:commit standard
-- [ ] Add fix:logs
-- [ ] Add docs:APP token
-- [ ] Add docs:cache
-- [ ] Add docs:template monorepo
-- [ ] Add docs:der flow
-- [ ] Add docs:env
-- [ ] Add feat:template for new project
+- [ ] Reconstruction with TS
 - [ ] Add feat:add page(may)
 
 
@@ -131,7 +126,9 @@ see [docs](./Documents.md)
 
 ## Q & A
 
-TODO
+#### 1.执行完初始化后，可以直接提交代码吗？
+
+答：可以。前提是准备好你的[docs: App Token](https://github.com/der-cli/der-cli/blob/master/Documents.md#App-Token).
 
 
 

@@ -9,7 +9,7 @@
 ```shell
 $ cd your-project
 
-$ der init my-project -tp D:\\repository\\QuickStart\\der-cli\\commands\\init -f -d
+$ der init my-project  -f -d
 ```
 
 ### publish
@@ -26,7 +26,9 @@ $ der go -d -rs -rt -ro
 $ der go -re
 ```
 
-## der 开发调试命令
+
+
+## der-cli 开发者调试命令
 
 本地调试
 
