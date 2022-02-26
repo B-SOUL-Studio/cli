@@ -409,27 +409,25 @@ class Git {
       await this.git.add(status.deleted);
       await this.git.add(status.modified);
       await this.git.add(status.renamed);
-      if (!this.release) {
-        const type = await inquirer({
-          type: 'list',
-          name: 'type',
-          message: '请选择提交类型:',
-          default: '',
-          choices: GIT_COMMIT_TYPE,
+
+      const type = await inquirer({
+        type: 'list',
+        name: 'type',
+        message: '请选择提交类型:',
+        default: '',
+        choices: GIT_COMMIT_TYPE,
+      });
+
+      let message;
+      while (!message) {
+        message = await inquirer({
+          type: 'text',
+          message: '请输入提交内容:',
+          defaultValue: '',
         });
-
-        let message;
-        while (!message) {
-          message = await inquirer({
-            type: 'text',
-            message: '请输入提交内容:',
-            defaultValue: '',
-          });
-        }
-        await this.git.commit(`'${type}: ${message}'`);
-        log.success('[Git] git commit -m', `'${type}: ${message}'`);
       }
-
+      await this.git.commit(`${type}: ${message}`);
+      log.success('[Git] git commit -m', `'${type}: ${message}'`);
     }
   };
 
@@ -676,7 +674,7 @@ class Git {
         log.success('[Publish] 本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
       })
     } else {
-      log.notice('[Git] Dev commit done, publish this tag version to release by using [-re] parameter.');
+      log.notice('[Git] Dev commit done, publish this tag version to release by using [der go -re].');
     }
   }
 

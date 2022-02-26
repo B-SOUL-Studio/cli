@@ -26,10 +26,13 @@ class PublishCommand extends Command {
       this.prepare()
       // 2.Git Flow自动化
       const git = new Git(this.projectInfo, this.options);
-      await git.prepare(); // 代码提交准备、初始化仓库
-      await git.commit() // 提交代码
-      // 发布 tag
-      await git.releaseTag(startTime)
+      if (this.options.release === false) {
+        await git.prepare(); // 代码提交准备、初始化仓库
+        await git.commit(); // 提交代码
+      } else {
+
+        await git.releaseTag(startTime); // 发布 tag
+      }
     } catch (e) {
       log.error(e);
       if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {

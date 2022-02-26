@@ -72,11 +72,11 @@ function registerCommand() {
   program
     .command('go')
     .description('发布项目')
-    .option('-rs, --refreshServer', '强制更新本地Git平台缓存')
-    .option('-rt, --refreshToken', '强制更新本地Git Token缓存')
-    .option('-ro, --refreshOwner', '强制更新Git Owner信息')
-    .option('-re, --release', '发布Tag版本')
-    .option('-f, --force', '强制更新所有缓存信息')
+    .option('-rs, --refreshServer', '强制更新本地Git平台缓存', false)
+    .option('-rt, --refreshToken', '强制更新本地Git Token缓存', false)
+    .option('-ro, --refreshOwner', '强制更新Git Owner信息', false)
+    .option('-re, --release', '发布Tag版本', false)
+    .option('-f, --force', '强制更新所有缓存信息', false)
     .action(exec)
 
   program
