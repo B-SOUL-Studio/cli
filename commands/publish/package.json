@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/publish",
-  "version": "0.1.18",
+  "version": "0.2.0",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
@@ -27,9 +27,9 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli/command": "^0.1.9",
-    "@der-cli/git": "^0.1.18",
-    "@der-cli/log": "^0.1.9"
+    "@der-cli/command": "^0.2.0",
+    "@der-cli/git": "^0.2.0",
+    "@der-cli/log": "^0.2.0"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"
 }
