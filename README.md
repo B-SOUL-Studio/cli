@@ -61,7 +61,7 @@ $ der init test-demo
 
 > 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 
-> 注意：`der go` 会将代码提交至项目**同名**远程仓库中(package.json的name属性值)，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [docs: APP TOKEN](https://github.com/der-cli/der-cli/blob/master/Documents.md#APP TOKEN)
+> 注意：`der go` 会将代码提交至项目**同名**远程仓库中(package.json的name属性值)，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [docs: APP TOKEN](https://github.com/der-cli/der-cli/blob/master/Documents.md#APP_TOKEN)
 
 ```shell
 $ der go
@@ -71,7 +71,7 @@ $ der go
 
 > 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
 >
-> 例: dev/1.0.1 => release/1.0.1，详见 [docs: Git Flow](https://github.com/der-cli/der-cli/blob/master/Documents.md#Git Flow)
+> 例: dev/1.0.1 => release/1.0.1，详见 [docs: Git Flow](https://github.com/der-cli/der-cli/blob/master/Documents.md#Git_Flow)
 
 ```shell
 $ der go -release
