@@ -90,7 +90,7 @@ see [docs](./Documents.md)
 ## TODO
 
 - [x] Add feat:`clean` command
-- [ ] Add feat:support for other languages
+- [x] Add feat:support for other languages
 - [ ] Add test:BDD tests
 - [ ] Add feat:commit standard
 - [ ] Add fix:logs

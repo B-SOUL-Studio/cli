@@ -49,6 +49,7 @@ const {
   GIT_OWNER_TYPE,
   GIT_OWNER_TYPE_ONLY,
   GIT_PUBLISH_TYPE,
+  GIT_COMMIT_TYPE
 } = require('./const');
 const {
   COMPONENT_LIBRARY_IGNORE,
@@ -409,16 +410,24 @@ class Git {
       await this.git.add(status.modified);
       await this.git.add(status.renamed);
       if (!this.release) {
+        const type = await inquirer({
+          type: 'list',
+          name: 'type',
+          message: '请选择提交类型:',
+          default: '',
+          choices: GIT_COMMIT_TYPE,
+        });
+
         let message;
         while (!message) {
           message = await inquirer({
             type: 'text',
-            message: '请输入commit信息:',
+            message: '请输入提交内容:',
             defaultValue: '',
           });
         }
-        await this.git.commit(message);
-        log.success('[Git] git commit -m', `'${message}'`);
+        await this.git.commit(`'${type}: ${message}'`);
+        log.success('[Git] git commit -m', `'${type}: ${message}'`);
       }
 
     }
