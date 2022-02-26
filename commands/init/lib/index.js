@@ -41,7 +41,7 @@ class InitCommand extends Command {
     this.projectName = this._argv[0] || '';
     // this.force = !!this._cmd.force;
     this.force = !!this._argv[1].force;
-    log.verbose('[init] 工程名称:', this.projectName);
+    log.verbose('[init] 工程名称:', this.projectName === '' ? '(待命名)' : this.projectName);
     log.verbose('[init] 强制清空目录:', this.force);
   }
 

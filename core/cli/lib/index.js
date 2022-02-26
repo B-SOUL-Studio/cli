@@ -15,7 +15,8 @@ const log = require('@der-cli/log');
 const exec = require('@der-cli/exec');
 const {
   DEFAULT_CLI_HOME,
-  DER_CLI_LOGO
+  DER_CLI_LOGO,
+  DEPENDENCIES_PATH
 } = require('./const');
 const {
   Error_USER_HOME_NOT_EXISTS,
@@ -61,7 +62,7 @@ function registerCommand() {
     .usage('<command> [options]')
     .version(pkg.version)
     .option('-d, --debug', '是否开启调试模式', false)
-    .option('-tp, --targetPath <targetPath>', '是否指定本地调试文件路径', '');
+    .option('-tp, --targetPath <targetPath>', '指定本地调试文件路径', '');
 
   program
     .command('init [projectName]')
@@ -78,6 +79,14 @@ function registerCommand() {
     .option('-re, --release', '发布Tag版本')
     .option('-f, --force', '强制更新所有缓存信息')
     .action(exec)
+
+  program
+    .command('clean')
+    .description('清空缓存文件')
+    .option('-a, --all', '清空全部')
+    .option('-d, --dep', '清空依赖文件')
+    .action(exec)
+
 
   // 开启debug模式
   program.on('option:debug', function () {

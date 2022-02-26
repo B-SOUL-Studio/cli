@@ -1,4 +1,5 @@
 const DEFAULT_CLI_HOME = '.der-cli';
+const DEPENDENCIES_PATH = 'dependencies';
 
 const DER_CLI_LOGO = `  ________              
   ___  __ \\____________    
@@ -9,5 +10,6 @@ const DER_CLI_LOGO = `  ________
 
 module.exports = {
   DEFAULT_CLI_HOME,
-  DER_CLI_LOGO
+  DER_CLI_LOGO,
+  DEPENDENCIES_PATH
 };

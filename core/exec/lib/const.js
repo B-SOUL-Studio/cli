@@ -8,6 +8,7 @@ const DEFAULT_CORE_PACKAGE_VERSION = 'latest';
 const SETTINGS = {
   init: '@der-cli/init',
   go: '@der-cli/publish',
+  clean: '@der-cli/clean',
 };
 
 module.exports = {
