@@ -1,9 +1,11 @@
+const locale = require('@der-cli/locale');
+
 const DEFAULT_CLI_HOME = '.der-cli';
 
 const DER_CLI_LOGO = `  ________              
   ___  __ \\____________    
   __  / / /  _ \\_  ___/  
-  _  /_/ //  __/  /     
+  _  /_/ //  __/  /       ${locale.welcome}
   /_____/ \\___//_/       By yesmore ©2022
 `
 

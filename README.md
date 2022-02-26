@@ -6,11 +6,12 @@
     	<img src="https://img.shields.io/npm/v/@der-cli/core">
     </a>
     <a href="https://npmcharts.com/compare/@der-cli/core?minimal=true" target='_blank'>
-    	<img src="https://img.shields.io/npm/dt/@der-cli/core.svg">
+    	<img src="https://img.shields.io/npm/dy/@der-cli/core">
     </a>
     <img src="https://img.shields.io/github/stars/der-cli/der-cli.svg?logo=github" alt="star"/><br>
 	<img src="https://img.shields.io/github/license/der-cli/der-cli" alt="GPL"/>
 </p>
+
 
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
@@ -88,7 +89,7 @@ see [docs](./Documents.md)
 
 ## TODO
 
-- [ ] Add feat:`clean` command
+- [x] Add feat:`clean` command
 - [ ] Add feat:support for other languages
 - [ ] Add test:BDD tests
 - [ ] Add feat:commit standard
@@ -98,7 +99,7 @@ see [docs](./Documents.md)
 - [ ] Add docs:template monorepo
 - [ ] Add docs:der flow
 - [ ] Add feat:template for new project
-- [ ] Add feat:add page
+- [ ] Add feat:add page(may)
 
 ## License
 
