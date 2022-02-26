@@ -439,6 +439,7 @@ class Git {
       oTask.next('[Git] done');
     } else {
       await this.git.push('origin', branchName);
+      log.success(`[Git] 远程新建[${branchName}]分支`, '...done');
     }
   };
 
@@ -471,6 +472,7 @@ class Git {
     await this.checkoutBranch(this.branch); // 5.切换开发分支
     await this.pullRemoteMasterAndBranch(); // 6.合并远程master分支和开发分支代码
     await this.pushRemoteRepo(this.branch); // 7. 将开发分支push到远程仓库
+    log.success(`[Git] 远程仓库初始化`, '...done');
   }
 
   // 生成开发分支
@@ -673,8 +675,6 @@ class Git {
         const endTime = new Date().getTime();
         log.success('[Publish] 本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
       })
-    } else {
-      log.notice('[Git] Dev commit done, publish this tag version to release by using [der go -re].');
     }
   }
 
