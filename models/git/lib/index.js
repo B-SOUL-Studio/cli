@@ -612,6 +612,8 @@ class Git {
   /* release Tag & delete dev branch **********************/
 
   async releaseTag(startTime) {
+    console.log();
+    log.notice('[Git]  ******** RELEASE TAG ********');
     if (this.release) {
       const tasks = new Listr([{
         title: '[Git] 自动发布Tag',
