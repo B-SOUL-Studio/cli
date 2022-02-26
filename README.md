@@ -54,9 +54,14 @@ $ mikdir mytest
 $ cd mytest
 
 $ der init test-demo
+# 根据步骤创建
 ```
 
-#### 发布 Github/Gitee
+#### 提交 & 初始化 Github/Gitee
+
+> 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
+
+> 注意：`der go` 会将代码提交至项目**同名**远程仓库中(package.json的name属性值)，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [docs: APP TOKEN](https://github.com/der-cli/der-cli/blob/master/Documents.md#APP TOKEN)
 
 ```shell
 $ der go
@@ -64,16 +69,29 @@ $ der go
 
 发布 tag
 
+> 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
+>
+> 例: dev/1.0.1 => release/1.0.1，详见 [docs: Git Flow](https://github.com/der-cli/der-cli/blob/master/Documents.md#Git Flow)
+
 ```shell
+$ der go -release
+# or 
 $ der go -re
 ```
+
+
 
 ## More
 
 #### 清空本地缓存
 
 ```shell
+# Default: clean all
 $ der clean
+$ der clean --all
+
+# or just clean dependencies
+$ der clean --dep
 ```
 
 #### DEBUG 模式
@@ -102,6 +120,20 @@ see [docs](./Documents.md)
 - [ ] Add docs:env
 - [ ] Add feat:template for new project
 - [ ] Add feat:add page(may)
+
+
+
+## Documents
+
+详情参考: [docs](https://github.com/der-cli/der-cli/blob/master/Documents.md)
+
+
+
+## Q & A
+
+TODO
+
+
 
 ## License
 
