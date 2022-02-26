@@ -15,8 +15,7 @@ const log = require('@der-cli/log');
 const exec = require('@der-cli/exec');
 const {
   DEFAULT_CLI_HOME,
-  DER_CLI_LOGO,
-  DEPENDENCIES_PATH
+  DER_CLI_LOGO
 } = require('./const');
 const {
   Error_USER_HOME_NOT_EXISTS,
@@ -84,7 +83,7 @@ function registerCommand() {
     .command('clean')
     .description('清空缓存文件')
     .option('-a, --all', '清空全部')
-    .option('-d, --dep', '清空依赖文件')
+    .option('--dep', '清空依赖文件')
     .action(exec)
 
 
