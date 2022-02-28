@@ -117,6 +117,7 @@ see [docs](./Documents.md)
 - [ ] Add test: BDD tests
 - [ ] Add feat: website
 - [ ] Add feat: add page cmd(may)
+- [ ] Add feat: CHANGELOG
 
 
 
