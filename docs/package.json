@@ -1,0 +1,9 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dep": "git add . && git commit -m deploy && git push -f git@github.com:der-cli/der-cli.git master:gh-pages"
+  },
+  "license": "GPL"
+}
