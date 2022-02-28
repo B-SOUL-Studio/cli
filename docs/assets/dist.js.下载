@@ -1,0 +1,296 @@
+/* GENERATED WITH: npm run dist */
+(function () {
+    'use strict';
+
+    class TabContainerElement extends HTMLElement {
+        constructor() {
+            super();
+            this.addEventListener('keydown', (event) => {
+                const target = event.target;
+                if (!(target instanceof HTMLElement))
+                    return;
+                if (target.getAttribute('role') !== 'tab' && !target.closest('[role="tablist"]'))
+                    return;
+                const tabs = Array.from(this.querySelectorAll('[role="tablist"] [role="tab"]'));
+                const currentIndex = tabs.indexOf(tabs.find(tab => tab.matches('[aria-selected="true"]')));
+                if (event.code === 'ArrowRight') {
+                    let index = currentIndex + 1;
+                    if (index >= tabs.length)
+                        index = 0;
+                    selectTab(this, index);
+                }
+                else if (event.code === 'ArrowLeft') {
+                    let index = currentIndex - 1;
+                    if (index < 0)
+                        index = tabs.length - 1;
+                    selectTab(this, index);
+                }
+                else if (event.code === 'Home') {
+                    selectTab(this, 0);
+                    event.preventDefault();
+                }
+                else if (event.code === 'End') {
+                    selectTab(this, tabs.length - 1);
+                    event.preventDefault();
+                }
+            });
+            this.addEventListener('click', (event) => {
+                const tabs = Array.from(this.querySelectorAll('[role="tablist"] [role="tab"]'));
+                if (!(event.target instanceof Element))
+                    return;
+                const tab = event.target.closest('[role="tab"]');
+                if (!tab || !tab.closest('[role="tablist"]'))
+                    return;
+                const index = tabs.indexOf(tab);
+                selectTab(this, index);
+            });
+        }
+        connectedCallback() {
+            for (const tab of this.querySelectorAll('[role="tablist"] [role="tab"]')) {
+                if (!tab.hasAttribute('aria-selected')) {
+                    tab.setAttribute('aria-selected', 'false');
+                }
+                if (!tab.hasAttribute('tabindex')) {
+                    if (tab.getAttribute('aria-selected') === 'true') {
+                        tab.setAttribute('tabindex', '0');
+                    }
+                    else {
+                        tab.setAttribute('tabindex', '-1');
+                    }
+                }
+            }
+        }
+    }
+    function selectTab(tabContainer, index) {
+        const tabs = tabContainer.querySelectorAll('[role="tablist"] [role="tab"]');
+        const panels = tabContainer.querySelectorAll('[role="tabpanel"]');
+        const selectedTab = tabs[index];
+        const selectedPanel = panels[index];
+        const cancelled = !tabContainer.dispatchEvent(new CustomEvent('tab-container-change', {
+            bubbles: true,
+            cancelable: true,
+            detail: { relatedTarget: selectedPanel }
+        }));
+        if (cancelled)
+            return;
+        for (const tab of tabs) {
+            tab.setAttribute('aria-selected', 'false');
+            tab.setAttribute('tabindex', '-1');
+        }
+        for (const panel of panels) {
+            panel.hidden = true;
+            if (!panel.hasAttribute('tabindex') && !panel.hasAttribute('data-tab-container-no-tabstop')) {
+                panel.setAttribute('tabindex', '0');
+            }
+        }
+        selectedTab.setAttribute('aria-selected', 'true');
+        selectedTab.setAttribute('tabindex', '0');
+        selectedTab.focus();
+        selectedPanel.hidden = false;
+        tabContainer.dispatchEvent(new CustomEvent('tab-container-changed', {
+            bubbles: true,
+            detail: { relatedTarget: selectedPanel }
+        }));
+    }
+    if (!window.customElements.get('tab-container')) {
+        window.TabContainerElement = TabContainerElement;
+        window.customElements.define('tab-container', TabContainerElement);
+    }
+
+    function supportsUserSelectContain() {
+      const el = document.createElement("div");
+      el.style.cssText = "-ms-user-select: element; user-select: contain;";
+      return (
+        el.style.getPropertyValue("-ms-user-select") === "element" ||
+        el.style.getPropertyValue("-ms-user-select") === "contain" ||
+        el.style.getPropertyValue("user-select") === "contain"
+      );
+    }
+
+    function handleUserSelectContain(event) {
+      if (!(event.target instanceof Element)) return;
+
+      const currentTarget = event.target.closest(".user-select-contain");
+      if (!currentTarget) return;
+
+      const selection = window.getSelection();
+      if (!selection.rangeCount) return;
+
+      const container = selection.getRangeAt(0).commonAncestorContainer;
+      if (currentTarget.contains(container)) return;
+
+      selection.selectAllChildren(currentTarget);
+    }
+
+    if (window.getSelection && !supportsUserSelectContain()) {
+      document.addEventListener("click", handleUserSelectContain);
+    }
+
+    // Show downloader on landing page for user's OS
+
+    var os = '';
+
+    if (navigator.appVersion.indexOf('Win') != -1) {
+      os = 'windows';
+    }
+    if (navigator.appVersion.indexOf('Mac') != -1) {
+      os = 'mac';
+    }
+    if (navigator.appVersion.indexOf('Linux') != -1) {
+      os = 'linux';
+    }
+
+    Array.from(document.querySelectorAll('.download-' + os)).forEach(function(el) {
+      el.classList.remove('d-none');
+    });
+
+    window.GitHub = {};
+
+    // Attach event listners to marketing header nav
+    // from github/github
+
+    (function() {
+    const touchDevice = 'ontouchstart' in document;
+
+    function compatibleDesktop() {
+      return window.innerWidth > 1012
+    }
+
+    for (const headerMenu of document.querySelectorAll('.HeaderMenu-details')) {
+      // On desktop and mobile, ensure that other menus are closed when one opens.
+      headerMenu.addEventListener('toggle', onMenuToggle);
+      if (!touchDevice) {
+        // We can't use `mouseenter` because of Safari bug (v12.0.1).
+        headerMenu.addEventListener('mouseover', onMenuHover);
+        headerMenu.addEventListener('mouseleave', onMenuHover);
+        // On desktop, because the menus are automatically closed on hover, disable
+        // manually collapsing menus to prevent accidental interactions.
+
+        // This is currently commented out due to a bug where dropdown links are not clickable. Awaiting a possible work around
+        // headerMenu.addEventListener('click', disableMenuManualClose)
+      }
+    }
+
+    let togglingInProgress = false;
+    function onMenuToggle(event) {
+      if (togglingInProgress) return
+      togglingInProgress = true;
+
+      for (const headerMenu of document.querySelectorAll('.HeaderMenu-details')) {
+        if (headerMenu === event.currentTarget) continue
+        headerMenu.removeAttribute('open');
+      }
+
+      setTimeout(() => (togglingInProgress = false));
+    }
+
+    function onMenuHover(event) {
+      const {currentTarget} = event;
+      if (!(currentTarget instanceof HTMLElement) || !compatibleDesktop()) {
+        return
+      }
+      if (event.type === 'mouseover') {
+        if (
+          event.target instanceof Node &&
+          event.relatedTarget instanceof Node &&
+          currentTarget.contains(event.target) &&
+          !currentTarget.contains(event.relatedTarget)
+        ) {
+          currentTarget.setAttribute('open', '');
+        }
+      } else {
+        currentTarget.removeAttribute('open');
+      }
+    }
+
+    // Toggle mobile nav
+    var mobileNavBtns = [].slice.call(document.querySelectorAll(".js-details-target"));
+    var header = document.querySelector('.Header');
+
+    mobileNavBtns.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        console.log('click');
+        if (header.classList.contains('open')) {
+          header.classList.remove('open');
+        } else {
+          header.classList.add('open');
+        }
+      });
+    });
+    }());
+
+    var keystrokeDelay = 60;  // ms between keystrokes
+    var outputDelay = 300;    // ms before command output is shown
+    var cycleDelay = 5000;    // ms between going to next command
+    var cycleTimeout = null;  // timeout
+
+    var numCommands = document.querySelectorAll('.command-header .command').length;
+
+    function showCommand(index, cycle = true) {
+      if (index > numCommands) index = 1;
+
+      // clear all timeouts
+      clearTimeout(cycleTimeout);
+
+      // hide previous commands
+      Array.from(document.querySelectorAll('.command')).forEach(function (el) {
+        el.classList.add('d-none');
+      });
+
+      // remove hidden attribute from terminal
+      Array.from(document.querySelectorAll('.cli-window div[role=tabpanel]')).forEach(function (el) {
+        el.removeAttribute('hidden');
+      });
+
+      // show current command while respecting animated ones
+      Array.from(document.querySelectorAll('.command-' + index)).forEach(function (el) {
+        if (el.classList.contains('type-animate-done')) return
+        if (el.classList.contains('type-animate')) {
+          typeAnimate(el, function () {
+            var doneEl = el.nextElementSibling;
+            if (doneEl && doneEl.classList.contains('type-animate-done')) {
+              setTimeout(function () {
+                doneEl.classList.remove('d-none');
+              }, outputDelay);
+            }
+          });
+        }
+        el.classList.remove('d-none');
+      });
+
+      // force "layout"
+      document.querySelector('.command-header').clientLeft;
+      if(cycle) {
+        cycleTimeout = setTimeout(function () {
+          showCommand(index + 1);
+        }, cycleDelay);
+      }
+    }
+
+    function typeAnimate(el, callback) {
+      var chars = el.textContent.split('');
+      el.textContent = '';
+
+      var typeIndex = 1;
+      var interval = setInterval(function () {
+        el.textContent = chars.slice(0, typeIndex++).join('');
+        if (typeIndex > chars.length) {
+          clearInterval(interval);
+          interval = null;
+          callback();
+        }
+      }, keystrokeDelay);
+    }
+
+    // Toggle Terminal
+    var tabsTerminal = document.querySelectorAll(".btn-mktg-fluid");
+
+    tabsTerminal.forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        showCommand(this.dataset.tab, false);
+      });
+    });
+
+    showCommand(1);
+
+}());
