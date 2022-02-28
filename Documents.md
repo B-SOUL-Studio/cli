@@ -163,8 +163,8 @@ Located at `C:\users\[hostname]\der-cli\template`
 ### init 初始化项目
 
 ```shell
-$ mikdir mytest
-$ cd mytest
+$ mikdir mytest && cd mytest
+
 
 $ der init test-demo
 
