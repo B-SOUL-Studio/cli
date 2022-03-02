@@ -49,21 +49,17 @@ $ der init test-demo
 
 #### 提交 & 初始化 Github/Gitee
 
-> 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
-
-> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
-
 ```shell
 $ der go
 ```
 
+> 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
+>
+> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
+
 > 如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
 
 #### 发布 tag
-
-> 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
->
-> 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Git-Flow-自动化).
 
 ```shell
 $ der go -release
@@ -71,9 +67,45 @@ $ der go -release
 $ der go -re
 ```
 
+> 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
+>
+> 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Git-Flow-自动化).
+
+
+
 ## More
 
-#### 清空脚手架本地缓存
+#### 查看模板列表
+
+```shell
+$ der tpl 
+
+# Or only project template
+$ der tpl --pro
+# Or only component template
+$ der tpl --com
+```
+
+
+
+#### 查看本地缓存
+
+```shell
+$ der cache --all
+
+# or 查看本地Git缓存信息
+$ der cache --git
+# or 查看本地模板缓存信息
+$ der cache --template
+# or 查看本地依赖缓存信息 
+$ der cache --dependencies
+# or 查看App Token 
+$ der cache --token
+```
+
+
+
+#### 清空本地缓存
 
 > 关于脚手架缓存，详见 [Cache 缓存](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Cache-缓存).
 

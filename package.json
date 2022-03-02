@@ -5,7 +5,8 @@
   "license": "GPL",
   "scripts": {
     "c": "git add . && git cz",
-    "cp": "git add . && git cz && yarn p",
+    "cp": "git add . && git cz && git push",
+    "cpp": "git add . && git cz && yarn p",
     "p": "lerna publish"
   },
   "devDependencies": {

@@ -92,7 +92,7 @@ function registerCommand() {
     .option('-cg, --git', '查看本地Git缓存信息', false)
     .option('-ct, --template', '查看本地模板缓存信息', false)
     .option('-cd, --dependencies', '查看本地依赖缓存信息', false)
-    .option('-cs, --token', '查看本地发布缓存信息', false)
+    .option('-cs, --token', '查看App Token', false)
     .action(exec)
 
   program

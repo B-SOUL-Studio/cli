@@ -28,6 +28,32 @@ $ der go -d -rs -rt -ro
 $ der go -re
 ```
 
+### tpl
+
+```shell
+$ der tpl 
+
+# Or only project template
+$ der tpl --pro
+# Or only component template
+$ der tpl --com
+```
+
+### cache
+
+```shell
+$ der cache --all
+
+# or 查看本地Git缓存信息
+$ der cache --git
+# or 查看本地模板缓存信息
+$ der cache --template
+# or 查看本地依赖缓存信息 
+$ der cache --dependencies
+# or 查看App Token 
+$ der cache --token
+```
+
 
 
 ## der-cli 开发者调试命令
@@ -102,3 +128,4 @@ $ yarn dev
 # or
 $ yarn start
 ```
+
