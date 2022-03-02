@@ -44,7 +44,7 @@ $ npm install @der-cli/core -g
 $ mikdir mytest && cd mytest
 
 $ der init test-demo
-# 根据步骤创建
+# 根据步骤创建即可
 ```
 
 #### 提交 & 初始化 Github/Gitee
@@ -63,7 +63,7 @@ $ der go
 
 ```shell
 $ der go -release
-# 简写
+# or 简写
 $ der go -re
 ```
 

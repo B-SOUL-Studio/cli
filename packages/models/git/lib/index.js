@@ -677,7 +677,7 @@ class Git {
       }]);
       tasks.run().then(() => {
         const endTime = new Date().getTime();
-        log.success('[Publish] 本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
+        log.success('[Go] 本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
       })
     }
   }

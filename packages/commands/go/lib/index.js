@@ -43,7 +43,7 @@ class PublishCommand extends Command {
     // 1.检查项目是否为npm项目
     const projectPath = process.cwd();
     const pkgPath = path.join(projectPath, 'package.json');
-    log.verbose('[Publish] 项目包路径:', pkgPath);
+    log.verbose('[Go] 项目包路径:', pkgPath);
     if (!fs.existsSync(pkgPath)) {
       Error_PACKAGE_JSON_NOT_FOUND()
     }
