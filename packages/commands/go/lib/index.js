@@ -32,7 +32,7 @@ class PublishCommand extends Command {
         await git.releaseTag(startTime); // 发布 tag
       }
     } catch (e) {
-      log.error(e);
+      log.error(e.message);
       if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {
         console.log(e);
       }

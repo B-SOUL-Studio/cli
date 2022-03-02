@@ -9,7 +9,6 @@ const userHome = homedir();
 const pathExists = require('path-exists').sync;
 const { Command } = require('commander');
 const rootCheck = require('root-check');
-const colors = require('colors/safe');
 const pkg = require('../package.json');
 const log = require('@der-cli/log');
 const exec = require('@der-cli/exec');
@@ -80,6 +79,23 @@ function registerCommand() {
     .action(exec)
 
   program
+    .command('tpl')
+    .description('查看所有模板')
+    .option('--pro', '查看所有项目模板', false)
+    .option('--com', '查看所有组件模板', false)
+    .action(exec)
+
+  program
+    .command('cache')
+    .description('查看本地缓存')
+    .option('-ca, --all', '查看本地所有缓存信息', false)
+    .option('-cg, --git', '查看本地Git缓存信息', false)
+    .option('-ct, --template', '查看本地模板缓存信息', false)
+    .option('-cd, --dependencies', '查看本地依赖缓存信息', false)
+    .option('-cs, --token', '查看本地发布缓存信息', false)
+    .action(exec)
+
+  program
     .command('clean')
     .description('清空缓存文件')
     .option('-a, --all', '清空全部')
@@ -126,7 +142,7 @@ function registerCommand() {
 
 // 1.0 der logo
 function printLogo() {
-  console.log(colors.cyan(DER_CLI_LOGO));
+  console.log(DER_CLI_LOGO);
 }
 
 // 1.1 检查 @der-cli/core 版本号

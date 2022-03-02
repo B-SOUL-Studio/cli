@@ -7,8 +7,8 @@ const userHome = homedir();
 const fse = require('fs-extra');
 const semver = require('semver');
 const Listr = require('listr');
-const colors = require('colors/safe');
 const { Observable } = require('rxjs');
+const colors = require('colors/safe');
 const Github = require('../Git/Github');
 const Gitee = require('../Git/Gitee');
 const log = require('@der-cli/log');
@@ -614,8 +614,8 @@ class Git {
 
   async releaseTag(startTime) {
     console.log();
-    log.notice('[Git]  ******** RELEASE TAG ********');
-    console.log();
+    log.notice('[Git]  ******** RELEASE TAG ********\n');
+
     if (this.release) {
       const tasks = new Listr([{
         title: '[Git] 自动发布Tag',

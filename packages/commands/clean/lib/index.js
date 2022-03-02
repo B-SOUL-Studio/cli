@@ -16,7 +16,14 @@ class CleanCommand extends Command {
   }
 
   exec() {
-    this.doClean()
+    try {
+      this.doClean()
+    } catch (e) {
+      log.error(e.message);
+      if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {
+        console.log(e.);
+      }
+    }
   }
 
   doClean() {
@@ -28,7 +35,7 @@ class CleanCommand extends Command {
       const depPath = path.resolve(process.env.DER_CLI_HOME_PATH, DEPENDENCIES_PATH);
       if (fs.existsSync(depPath)) {
         fse.emptyDirSync(depPath);
-        log.success('[Clean] Remove:', `${depPath}...done`);
+        log.success('[Clean] Remove:', `${depPath} ...done`);
       } else {
         log.success('[Clean] Folder is not exsits:', depPath);
       }
@@ -40,7 +47,7 @@ class CleanCommand extends Command {
   cleanAll(cliPath) {
     if (fs.existsSync(cliPath)) {
       fse.emptyDirSync(cliPath);
-      log.success('[Clean] Remove:', `${cliPath}...done`);
+      log.success('[Clean] Remove:', `${cliPath} ...done`);
     } else {
       log.notice('[Clean] Folder is not exsits:', cliPath);
     }

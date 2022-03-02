@@ -59,7 +59,7 @@ class InitCommand extends Command {
         await this.installTemplate();
       }
     } catch (e) {
-      log.error(e);
+      log.error(e.message);
       if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {
         console.log(e);
       }

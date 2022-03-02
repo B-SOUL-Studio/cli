@@ -25,5 +25,11 @@
   },
   "bugs": {
     "url": "https://github.com/der-cli/der-cli/issues"
+  },
+  "dependencies": {
+    "@der-cli/command": "^0.3.0",
+    "@der-cli/utils": "^0.3.0",
+    "@der-cli/log": "^0.3.0",
+    "fs-extra": "^10.0.1"
   }
 }
