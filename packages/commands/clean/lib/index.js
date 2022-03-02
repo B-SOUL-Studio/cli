@@ -21,16 +21,16 @@ class CleanCommand extends Command {
 
   doClean() {
     const cliPath = process.env.DER_CLI_HOME_PATH;
-    log.notice('开始清空缓存文件...');
+    log.notice('[Clean] Removing Cache files...');
     if (this.options.all) {
       this.cleanAll(cliPath)
     } else if (this.options.dep) {
       const depPath = path.resolve(process.env.DER_CLI_HOME_PATH, DEPENDENCIES_PATH);
       if (fs.existsSync(depPath)) {
         fse.emptyDirSync(depPath);
-        log.success('[clean] 清空依赖文件成功:', depPath);
+        log.success('[Clean] Remove:', `${depPath}...done`);
       } else {
-        log.success('[clean] 文件夹不存在:', depPath);
+        log.success('[Clean] Folder is not exsits:', depPath);
       }
     } else {
       this.cleanAll(cliPath)
@@ -40,9 +40,9 @@ class CleanCommand extends Command {
   cleanAll(cliPath) {
     if (fs.existsSync(cliPath)) {
       fse.emptyDirSync(cliPath);
-      log.success('[clean] 缓存已清空:', cliPath);
+      log.success('[Clean] Remove:', `${cliPath}...done`);
     } else {
-      log.notice('[clean] 文件夹不存在:', cliPath);
+      log.notice('[Clean] Folder is not exsits:', cliPath);
     }
   }
 }

@@ -51,7 +51,7 @@ $ der init test-demo
 
 > 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 
-> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为package.json的name属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见  [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
+> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
 
 ```shell
 $ der go
@@ -100,22 +100,15 @@ $ der -d
 
 see [docs](./docs/Documents.md)
 
-
-
 ## TODO
 
 - [ ] Add test: BDD tests
-- [ ] Add feat: website
 - [ ] Add feat: add page cmd(may)
 - [ ] Add feat: CHANGELOG
-
-
 
 ## Documents
 
 详情参考: [docs](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md)
-
-
 
 ## Q & A
 
@@ -123,9 +116,6 @@ see [docs](./docs/Documents.md)
 
 答：可以。前提是准备好你的 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
 
-
-
 ## Licence
 
 Der cli is open source software licensed as [GPL](LICENSE)
-

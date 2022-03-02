@@ -9,6 +9,8 @@ const SETTINGS = {
   init: '@der-cli/init',
   go: '@der-cli/publish',
   clean: '@der-cli/clean',
+  cache: '@der-cli/cache',
+  tpl: '@der-cli/tpl',
 };
 
 module.exports = {

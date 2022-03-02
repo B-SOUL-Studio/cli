@@ -473,6 +473,7 @@ class Git {
     await this.pullRemoteMasterAndBranch(); // 6.合并远程master分支和开发分支代码
     await this.pushRemoteRepo(this.branch); // 7. 将开发分支push到远程仓库
     log.success(`[Git] 远程仓库初始化`, '...done');
+    log.success(`[Git] 提交开发分支`, '...done');
   }
 
   // 生成开发分支
@@ -614,6 +615,7 @@ class Git {
   async releaseTag(startTime) {
     console.log();
     log.notice('[Git]  ******** RELEASE TAG ********');
+    console.log();
     if (this.release) {
       const tasks = new Listr([{
         title: '[Git] 自动发布Tag',
