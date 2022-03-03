@@ -42,7 +42,7 @@
 
 `der-cli` 采用单仓库多工具包模式开发，使用 [Lerna](https://github.com/lerna/lerna) 管理工作流程，前端流行的开源库 Babel、React 等也采用了这种架构模式，每一个包都能单独下载使用，且方便管理与维护。
 
-更多架构设计请查看 [der-cli 架构方案](https://github.com/der-cli/der-cli/packages/assets/learn-der-cli/der-cli架构方案.md).
+更多架构设计请查看 [der-cli 架构方案](https://github.com/der-cli/cli/packages/assets/learn-der-cli/der-cli架构方案.md).
 
 ## Git Flow 自动化
 
@@ -217,7 +217,7 @@ $ der cache --token
 
 #### clean 清空本地缓存
 
-> 关于脚手架缓存，详见 [docs: Cache](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Cache).
+> 关于脚手架缓存，详见 [docs: Cache](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Cache).
 
 ```shell
 # Default: clean all
@@ -236,7 +236,7 @@ $ der --debug
 $ der -d
 ```
 
-更多命令 [详情](https://github.com/der-cli/der-cli/blob/master/docs/Commands.md).
+更多命令 [详情](https://github.com/der-cli/cli/blob/master/docs/Commands.md).
 
 ## 本地开发
 
@@ -269,4 +269,4 @@ DER_CLI_HOME = '.der-cli' || ''
 DER_CLI_HOME_PATH = 'C:\\Users\\hostname\\.der-cli'
 ```
 
-同 [.env-example](https://github.com/der-cli/der-cli/blob/master/.env-example)
+同 [.env-example](https://github.com/der-cli/cli/blob/master/.env-example)

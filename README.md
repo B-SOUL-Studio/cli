@@ -55,7 +55,7 @@ $ der go
 
 > 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 >
-> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
+> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token, 详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
 
 > 如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
 
@@ -69,7 +69,7 @@ $ der go -re
 
 > 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
 >
-> 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Git-Flow-自动化).
+> 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Git-Flow-自动化).
 
 ## More
 
@@ -101,7 +101,7 @@ $ der cache --dependencies
 
 #### 清空本地缓存
 
-> 关于脚手架缓存，详见 [Cache 缓存](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Cache-缓存).
+> 关于脚手架缓存，详见 [Cache 缓存](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Cache-缓存).
 
 ```shell
 # Default: clean all
@@ -120,7 +120,7 @@ $ der --debug
 $ der -d
 ```
 
-更多命令 [详情](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md)
+更多命令 [详情](https://github.com/der-cli/cli/blob/master/docs/Documents.md)
 
 #### 调试本地包
 
@@ -133,7 +133,7 @@ see [docs](./docs/Documents.md)
 
 ## Documents
 
-详情参考: [docs](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md)
+详情参考: [docs](https://github.com/der-cli/cli/blob/master/docs/Documents.md)
 
 ## Change Log
 
@@ -143,9 +143,8 @@ see [docs](./docs/Documents.md)
 
 #### 1.执行完初始化后，可以直接提交代码吗？
 
-答：可以。前提是准备好你的 [App Token](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#App-Token).
+答：可以。前提是准备好你的 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
 
 ## Licence
 
 Der cli is open source software licensed as [GPL](LICENSE)
-
