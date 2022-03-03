@@ -40,7 +40,7 @@ class TplCommand extends Command {
 
   fmtNameAndLog() {
     console.log();
-    log.notice(`[Template]  ******** TEMPLATES ********`);
+    log.notice(`******** TEMPLATES ********`);
     this.template.forEach((tpl, index) => {
       console.log(colors.cyan(`  [${index + 1}] ${tpl.name} -- v${tpl.version}`));
     })

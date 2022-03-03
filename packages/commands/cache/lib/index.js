@@ -122,7 +122,7 @@ class CacheCommand extends Command {
 
   toolStart(info) {
     console.log();
-    log.notice(`[Git]  ******** ${info} ********`);
+    log.info(`******** ${info} ********`);
   }
 }
 

@@ -106,7 +106,7 @@ class Git {
 
   async prepare() {
     console.log();
-    log.notice('[Git]  ******** CHECK ********');
+    log.info('******** CHECK ********');
 
     this.checkHomePath()
     await this.checkGitServer()
@@ -473,7 +473,7 @@ class Git {
 
   async commit() {
     console.log();
-    log.notice('[Git]  ******** COMMIT ********');
+    log.info('******** COMMIT ********');
     await this.getCorrectVersion() // 1.获取正确的版本号
     await this.checkStash(); // 2.检查Stash区
     await this.checkConflicted(); // 3.检查是否代码冲突
@@ -602,7 +602,7 @@ class Git {
   // 合并远程master分支和开发分支代码
   async pullRemoteMasterAndBranch() {
     console.log();
-    log.notice('[Git]  ******** TREE ********');
+    log.info('******** TREE ********');
     log.notice(`[Git] 合并分支:`, `master + ${this.branch}`);
     await this.pullRemoteRepo('master');
     log.success('[Git] 合并远程master分支内容', '...done');
@@ -623,7 +623,7 @@ class Git {
 
   async releaseTag(startTime) {
     console.log();
-    log.notice('[Git]  ******** RELEASE TAG ********');
+    log.info('******** RELEASE TAG ********');
 
     if (this.release) {
       const tasks = new Listr([{

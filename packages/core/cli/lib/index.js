@@ -111,7 +111,7 @@ function registerCommand() {
       process.env.DER_CLI_LOG_LEVEL = 'info';
     }
     log.level = process.env.DER_CLI_LOG_LEVEL;
-    log.verbose('[core/cli] debug', 'You have turned on debugging.');
+    log.verbose('[Core/cli]', 'You have turned on debugging.');
   });
 
   // 指定targetPath
@@ -147,7 +147,7 @@ function printLogo() {
 
 // 1.1 检查 @der-cli/core 版本号
 function checkPkgVersion() {
-  log.info('[core/cli]', `${pkg.name}@${pkg.version}`);
+  log.info('[Core/cli]', `${pkg.name}@${pkg.version}`);
 }
 
 // 1.2 检查是否为root用户启动
