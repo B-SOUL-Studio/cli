@@ -105,6 +105,9 @@ class Git {
   /* prepare ********************************************/
 
   async prepare() {
+    console.log();
+    log.notice('[Git]  ******** CHECK ********');
+
     this.checkHomePath()
     await this.checkGitServer()
     await this.checkGitToken()
@@ -118,16 +121,14 @@ class Git {
 
   // 检查缓存主目录
   checkHomePath() {
-    console.log();
-    log.notice('[Git]  ******** CHECK ********');
     if (!this.homePath) {
-      if (process.env.CLI_HOME) {
-        this.homePath = path.resolve(userHome, process.env.DER_CLI_HOME_PATH);
+      if (process.env.DER_CLI_HOME) {
+        this.homePath = path.resolve(userHome, process.env.DER_CLI_HOME);
       } else {
         this.homePath = path.resolve(userHome, DEFAULT_CLI_HOME);
       }
     }
-    log.verbose('[Git] 检查缓存路径:', this.homePath);
+    // log.verbose('[Git] 检查缓存路径:', this.homePath);
     fse.ensureDirSync(this.homePath); // 确认目录可用
     if (!fs.existsSync(this.homePath)) {
       Error_CAN_NOT_FIND_USER_HOME()
@@ -137,7 +138,7 @@ class Git {
   // 确认远程 git 平台
   async checkGitServer() {
     const gitServerPath = this.createPath(GIT_SERVER_FILE);
-    log.verbose('[Git] 平台信息缓存路径:', gitServerPath);
+    // log.verbose('[Git] 平台信息缓存路径:', gitServerPath);
     let gitServer = readFile(gitServerPath);
 
     if (!gitServer || this.refreshServer) { // 文件不存在或开启强制刷新则新建内容
@@ -241,7 +242,7 @@ class Git {
     let repo = await this.gitServer.getRepo(this.login, this.name);
 
     if (!repo) {
-      let createStart = spinner('[Git] 开始创建远程仓库...');
+      let createStart = spinner('  [Git] Creating remote repo');
       try {
         if (this.owner === REPO_OWNER_USER) {
           repo = await this.gitServer.createRepo(this.name);
@@ -278,8 +279,16 @@ class Git {
   // 检查 component 是否打包
   async checkComponent() {
     let componentFile = this.isComponent();
+
+    const confirmBuild = await inquirer({
+      type: 'confirm',
+      name: 'confirmBuild',
+      default: false,
+      message: '是否立即打包组件库(npm run build)?',
+    });
+
     // 只有 component 才启动该逻辑
-    if (componentFile) {
+    if (componentFile && confirmBuild) {
       log.notice('[Git] Building Component project...');
       try {
         require('child_process').execSync('npm run build', {
@@ -345,12 +354,12 @@ class Git {
     await this.initCommit();
   }
 
-  // 检查是否初始化本地git仓库
+  // 检查是否创建远程仓库
   async getRemote() {
     const gitPath = path.resolve(this.dir, GIT_ROOT_DIR);
     this.remote = this.gitServer.getRemote(this.login, this.name); // 远程仓库地址
     if (fs.existsSync(gitPath)) {
-      log.notice('[Git] 本地仓库已初始化,', `执行 ${colors.cyan("git remote -v")} 查看远程仓库地址`);
+      log.notice(`[Git] 执行 ${colors.cyan("git remote -v")} 查看远程仓库地址`);
       return true;
     }
   }
@@ -614,13 +623,13 @@ class Git {
 
   async releaseTag(startTime) {
     console.log();
-    log.notice('[Git]  ******** RELEASE TAG ********\n');
+    log.notice('[Git]  ******** RELEASE TAG ********');
 
     if (this.release) {
       const tasks = new Listr([{
         title: '[Git] 自动发布Tag',
         task: () => new Listr([{
-          title: '[Git] 创建Tag',
+          title: '创建本地Tag: release/x.x.x',
           task: () => {
             return new Observable(o => {
               this.checkTag(o).then(() => {
@@ -629,7 +638,7 @@ class Git {
             });
           },
         }, {
-          title: '[Git] 切换本地分支至master',
+          title: '切换本地分支至master',
           task: () => {
             return new Observable(o => {
               this.checkoutBranch('master', o).then(() => {
@@ -638,7 +647,7 @@ class Git {
             });
           },
         }, {
-          title: '[Git] 合并dev分支至master',
+          title: '合并dev分支至master',
           task: () => {
             return new Observable(o => {
               this.mergeReleaseToMaster(o).then(() => {
@@ -647,7 +656,7 @@ class Git {
             });
           },
         }, {
-          title: '[Git] 推送代码至远程master分支',
+          title: '推送代码至远程master分支',
           task: () => {
             return new Observable(o => {
               this.pushRemoteRepo('master', o).then(() => {
@@ -656,7 +665,7 @@ class Git {
             });
           },
         }, {
-          title: '[Git] 删除本地开发分支',
+          title: '删除本地开发分支',
           task: () => {
             return new Observable(o => {
               this.deleteLocalBranch(o).then(() => {
@@ -665,7 +674,7 @@ class Git {
             });
           },
         }, {
-          title: '[Git] 删除远程开发分支',
+          title: '删除远程开发分支',
           task: () => {
             return new Observable(o => {
               this.deleteRemoteBranch(o).then(() => {
@@ -677,6 +686,7 @@ class Git {
       }]);
       tasks.run().then(() => {
         const endTime = new Date().getTime();
+        console.log();
         log.success('[Go] 本次推送耗时:', Math.floor(endTime - startTime) + 'ms');
       })
     }

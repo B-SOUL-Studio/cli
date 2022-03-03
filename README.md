@@ -90,13 +90,13 @@ $ der tpl --com
 $ der cache --all
 
 # or 查看本地Git缓存信息
-$ der cache --git
+$ der cache --git [--token]
 # or 查看本地模板缓存信息
 $ der cache --template
 # or 查看本地依赖缓存信息
 $ der cache --dependencies
 # or 查看App Token
-$ der cache --token
+
 ```
 
 #### 清空本地缓存

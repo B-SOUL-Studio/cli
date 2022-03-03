@@ -61,9 +61,6 @@ async function exec() {
 
   if (rootFile) {
     try {
-      // T: 在当前进程中调用 init
-      // require(rootFile).call(null, Array.from(arguments));
-
       // 优化: 在node子进程中调用
       const args = Array.from(arguments); // 参数转数组
       const cmd = args[args.length - 1];

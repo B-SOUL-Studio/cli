@@ -41,8 +41,8 @@ class InitCommand extends Command {
     this.projectName = this._argv[0] || '';
     // this.force = !!this._cmd.force;
     this.force = !!this._argv[1].force;
-    log.verbose('[init] 工程名称:', this.projectName === '' ? '(待命名)' : this.projectName);
-    log.verbose('[init] 强制清空目录:', this.force);
+    log.verbose('[Init] 工程名称:', this.projectName === '' ? '(待命名)' : this.projectName);
+    log.verbose('[Init] 强制清空目录:', this.force);
   }
 
   // 默认执行
@@ -102,8 +102,8 @@ class InitCommand extends Command {
         });
         if (confirmDelete) {
           // 清空当前目录
-          log.verbose('[init] 目录已清空:', localPath)
           fse.emptyDirSync(localPath);
+          log.verbose('[Init] Clean', '...done')
         }
       }
     }
@@ -282,7 +282,7 @@ class InitCommand extends Command {
 
     if (!await templateNpm.exists()) {
       // 如果模板不存在，则下载
-      const spinner = spinnerStart('[init] 正在下载模板...');
+      const spinner = spinnerStart('  [Init] 正在下载模板...');
       await sleep();
       try {
         await templateNpm.install();
@@ -291,13 +291,13 @@ class InitCommand extends Command {
       } finally {
         spinner.stop(true);
         if (await templateNpm.exists()) {
-          log.success('[init] 下载模板', '...done');
+          log.success('[Init] 下载模板', '...done');
           this.templateNpm = templateNpm;
         }
       }
     } else {
       // 如果模板存在，则检测or更新
-      const spinner = spinnerStart('[init] 正在更新模板...');
+      const spinner = spinnerStart('  [Init] 正在更新模板...');
       await sleep();
       try {
         await templateNpm.update();
@@ -306,7 +306,7 @@ class InitCommand extends Command {
       } finally {
         spinner.stop(true);
         if (await templateNpm.exists()) {
-          log.success(`[init] 更新模板成功(${npmName})`);
+          log.success(`[Init] 更新模板成功(${npmName})`);
           this.templateNpm = templateNpm;
         }
       }
@@ -336,9 +336,9 @@ class InitCommand extends Command {
 
   async installNormalTemplate() {
     const { cacheFilePath } = this.templateNpm;
-    log.verbose('[init] 模板缓存路径:', cacheFilePath);
+    log.verbose('[Init] 模板缓存路径:', cacheFilePath);
     // 拷贝模板代码至当前目录
-    let spinner = spinnerStart('[init] 正在安装模板...');
+    let spinner = spinnerStart('  [Init] 正在安装模板...');
     await sleep();
     const targetPath = process.cwd(); // 终端执行的路径
     try {
@@ -351,7 +351,7 @@ class InitCommand extends Command {
       throw e;
     } finally {
       spinner.stop(true);
-      log.success('[init] 模板安装', '...done');
+      log.success('[Init] 模板安装', '...done');
     }
 
     const templateIgnore = this.templateInfo.ignore || [];
@@ -377,7 +377,7 @@ class InitCommand extends Command {
     if (await this.templateNpm.exists()) {
       const rootFile = this.templateNpm.getRootFilePath();
       if (fs.existsSync(rootFile)) {
-        log.notice('[init] 开始执行自定义模板...');
+        log.notice('[Init] 开始执行自定义模板...');
         const templatePath = path.resolve(this.templateNpm.cacheFilePath, 'template');
         const options = {
           templateInfo: this.templateInfo,
@@ -389,7 +389,7 @@ class InitCommand extends Command {
         const code = `require('${rootFile}')(${JSON.stringify(options)})`;
         log.verbose('code', code);
         await execAsync('node', ['-e', code], { stdio: 'inherit', cwd: process.cwd() });
-        log.success('[init] 自定义模板安装', '...done');
+        log.success('[Init] 自定义模板安装', '...done');
       } else {
         Error_COSTOM_TEMPLATE_INDEX_IS_NOT_EXISTS()
       }
