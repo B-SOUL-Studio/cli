@@ -1,2 +1,2 @@
-packages/models/git/__tests__
+packages/models/git/
 --recursive
