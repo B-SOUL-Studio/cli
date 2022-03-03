@@ -13,11 +13,12 @@
     "lerna": "^4.0.0"
   },
   "dependencies": {
-    "cz-customizable": "^6.3.0"
+    "cz-customizable": "^6.3.0",
+    "cz-lerna-changelog": "^2.0.3"
   },
   "config": {
     "commitizen": {
-      "path": "node_modules/cz-customizable"
+      "path": "./node_modules/cz-lerna-changelog"
     }
   }
 }

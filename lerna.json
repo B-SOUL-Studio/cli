@@ -5,5 +5,11 @@
     "packages/models/*",
     "packages/utils/*"
   ],
+  "command": {
+    "bootstrap": {
+      "hoist": true
+    }
+  },
+  "name": "root",
   "version": "0.3.3"
 }
