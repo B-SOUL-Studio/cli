@@ -142,6 +142,10 @@ see [docs](./docs/Documents.md)
 
 详情参考: [docs](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md)
 
+## ChangeLog
+
+[CHANGELOG](./CHANGELOG.md)
+
 ## Q & A
 
 #### 1.执行完初始化后，可以直接提交代码吗？

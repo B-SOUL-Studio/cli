@@ -2,12 +2,13 @@
   "name": "der-cli",
   "version": "0.0.1",
   "main": "index.js",
-  "license": "GPL",
+  "license": "GPL-3.0",
   "scripts": {
     "c": "git add . && git cz",
     "cp": "git add . && git cz && git push",
     "cpp": "git add . && git cz && yarn p",
-    "p": "lerna publish"
+    "p": "lerna publish",
+    "test": "mocha 'packages/**/**/__tests__/*.test.js'"
   },
   "devDependencies": {
     "lerna": "^4.0.0"

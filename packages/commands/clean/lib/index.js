@@ -21,7 +21,7 @@ class CleanCommand extends Command {
     } catch (e) {
       log.error(e.message);
       if (process.env.DER_CLI_LOG_LEVEL === 'verbose') {
-        console.log(e.);
+        console.log(e);
       }
     }
   }
