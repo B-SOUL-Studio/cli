@@ -17,7 +17,9 @@
     "@commitlint/config-conventional": "^16.2.1",
     "cz-customizable": "^6.3.0",
     "cz-lerna-changelog": "^2.0.3",
-    "husky": "^7.0.4"
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.4",
+    "standard": "^16.0.4"
   },
   "config": {
     "commitizen": {
@@ -26,7 +28,14 @@
   },
   "husky": {
     "hooks": {
+      "pre-commit": "lint-staged",
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
+  },
+  "lint-staged": {
+    "*.js": [
+      "standard --fix",
+      "git add"
+    ]
   }
 }

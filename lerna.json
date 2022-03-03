@@ -8,8 +8,12 @@
   "command": {
     "bootstrap": {
       "hoist": true
+    },
+    "version": {
+      "conventionalCommits": true
     }
   },
   "name": "root",
-  "version": "0.3.3"
+  "version": "0.3.3",
+  "ignoreChanges": ["**/*.md"]
 }
