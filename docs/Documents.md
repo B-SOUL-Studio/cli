@@ -192,15 +192,13 @@ $ der go -re
 #### tpl 查看模板列表
 
 ```shell
-$ der tpl 
+$ der tpl
 
 # Or only project template
 $ der tpl --pro
 # Or only component template
 $ der tpl --com
 ```
-
-
 
 #### cache 查看本地缓存
 
@@ -211,13 +209,11 @@ $ der cache --all
 $ der cache --git
 # or 查看本地模板缓存信息
 $ der cache --template
-# or 查看本地依赖缓存信息 
+# or 查看本地依赖缓存信息
 $ der cache --dependencies
-# or 查看App Token 
+# or 查看App Token
 $ der cache --token
 ```
-
-
 
 #### clean 清空本地缓存
 

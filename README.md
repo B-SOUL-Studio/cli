@@ -71,22 +71,18 @@ $ der go -re
 >
 > 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md#Git-Flow-自动化).
 
-
-
 ## More
 
 #### 查看模板列表
 
 ```shell
-$ der tpl 
+$ der tpl
 
 # Or only project template
 $ der tpl --pro
 # Or only component template
 $ der tpl --com
 ```
-
-
 
 #### 查看本地缓存
 
@@ -97,13 +93,11 @@ $ der cache --all
 $ der cache --git
 # or 查看本地模板缓存信息
 $ der cache --template
-# or 查看本地依赖缓存信息 
+# or 查看本地依赖缓存信息
 $ der cache --dependencies
-# or 查看App Token 
+# or 查看App Token
 $ der cache --token
 ```
-
-
 
 #### 清空本地缓存
 
@@ -136,13 +130,12 @@ see [docs](./docs/Documents.md)
 
 - [ ] Add test: BDD tests
 - [ ] Add feat: add page cmd(may)
-- [ ] Add feat: CHANGELOG
 
 ## Documents
 
 详情参考: [docs](https://github.com/der-cli/der-cli/blob/master/docs/Documents.md)
 
-## ChangeLog
+## Change Log
 
 [CHANGELOG](./CHANGELOG.md)
 
@@ -155,3 +148,4 @@ see [docs](./docs/Documents.md)
 ## Licence
 
 Der cli is open source software licensed as [GPL](LICENSE)
+
