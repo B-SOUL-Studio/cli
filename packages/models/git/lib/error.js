@@ -30,6 +30,10 @@ const Error_PACKAGE_JSON_NOT_FOUND = () => {
   throw new Error('[Git] package.json 不存在!');
 }
 
+const Error_COMMIT_INFO_IS_EMPTY = () => {
+  return '提交信息不能为空'
+}
+
 module.exports = {
   Error_CAN_NOT_FIND_USER_HOME,
   Error_INIT_GIT_SERVER_FAILED,
@@ -38,5 +42,6 @@ module.exports = {
   Error_CODE_CONFLICTS,
   Error_BUIILD_FAILED,
   Error_BUIILD_PATH_NOT_FOUND,
-  Error_PACKAGE_JSON_NOT_FOUND
+  Error_PACKAGE_JSON_NOT_FOUND,
+  Error_COMMIT_INFO_IS_EMPTY
 }

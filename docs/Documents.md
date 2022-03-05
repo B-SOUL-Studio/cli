@@ -28,15 +28,15 @@
 
 ### 发布项目
 
-初始化过后，就该认认真真(~~划水水摸鱼鱼~~)写代码了，写到一半，~~群友提醒你做提肛运动了~~，那你是不是该保存一下代码，咋个保存？相信大部分人都将代码放在 Github 或者 Gitee 上吧，那你又要去上面先创建个仓库，然后 add remote，然后时候你也许会熟练的在 terminal 里面敲上了三个命令: `git add .` `git commit -m 'feat:add a bug'` `git push` ，也许是打开文件夹，找到当前项目，然后打开 TortoiseGit，点点点提交走人，但是我懒了，我就不想点三下，我就点一下，想搞定所有，那需求不就来了： `der-cli` **能通过一个命令完成仓库初始化本地/远程仓库、提交代码、创建分支、发布分支**。
+初始化过后，就该认认真真(~~划水水摸鱼鱼~~)写代码了，写到一半，~~群友提醒你做提肛运动了~~，那你是不是该保存一下代码，怎么保存？相信大部分人都将代码放在 Github 或者 Gitee 上吧，那你又要去上面先创建个仓库，然后 add remote，然后你也许会熟练的在 terminal 里面敲上了三个命令: `git add .` `git commit -m 'feat:add a bug'` `git push` ，又或许是打开文件夹，找到当前项目，然后打开 TortoiseGit，点点点提交走人，但是我懒了，我就不想点三下，我就点一下，想搞定所有，那这需求不就来了： `der-cli` **能通过一个命令完成本地/远程仓库初始化、提交代码、创建分支、发布分支**。
 
 这就是 `der go [-re] ` 的意义（~~提高效率才不是为了摸鱼~~）
 
-一般开发中，整个流水线基本流程可包括 `初始化 -> 开发 -> 代码测试 -> 代码发布 -> 项目部署 `， `der-cli` 在整个 [workflow]() 中，占据了 **初始化**、**代码发布** 两个流程。
+一般开发中，整个流水线基本流程可包括 `初始化 -> 开发 -> 代码测试 -> 代码发布 -> 项目部署 `，而 `der-cli` 在整个 [workflow]() 中，占据了 **初始化**、**代码发布** 两个流程。
 
 不管是独立开发还是团队开发，**打通项目流程，完成闭环** 是提升后期开发效率的必需事项，`der-cli`让你从初始化到项目发布 Tag 一步到位，可以专注于代码逻辑编写。
 
-当然，一些 [github action]() 也可以完成自动发布 tag 的功能，为什么不选择它们呢？ `der-cli` 把 一些 workflow 流程放到了客户端来完成，只需要全局安装了此脚手架，那么在所有项目中都能够使用这个 workflow，如果是使用类似 [github action]() 的话，需要给每个项目都写一份 yaml 作为 workflow 配置，这让开发者的工作有了一定的重复，当然 workflow 的可定制性非常强大，是鄙人小小脚手架不可比拟滴，所以 `der-cli` 主要还是面向一些简单的、独立开发者的项目而定制的脚手架。
+当然，一些 [github action]() 也可以完成自动发布 tag 的功能，为什么不选择它们呢？ `der-cli` 把 一些 workflow 流程放到了客户端来完成，只需要全局安装了此脚手架，那么在所有项目中都能够使用这个 workflow，如果是使用类似 [github action]() 的话，需要给每个项目都写一份 yaml 作为 workflow 配置，这让开发者的工作有了一定的重复，当然 workflow 的可定制性非常强大，是鄙人小小脚手架不可比拟的，所以 `der-cli` **主要还是面向一些简单的、独立开发者的项目而定制的脚手架**。
 
 ## 架构设计
 
@@ -70,12 +70,13 @@ Git 工作流程自动化。
 
 ### Git Flow 命令
 
-- `der go` 提交代码到远程仓库:
+> 根据上面的流程图，可以知道下面两个命令分别执行了哪些阶段
 
+- `der go` 提交代码到远程仓库:
   - Prepare
   - Init
   - Commit
-
+  
 - `der go -re` 提交代码到远程仓库并发布 Tag:
   - Prepare
   - Init
@@ -86,13 +87,13 @@ Git 工作流程自动化。
 
 `der-cli` 为了提高运行效率，在初始化应用以及自动发布时都采用了**缓存机制**，充分利用了客户端应用本地机制。但这不需要你提供 `root` 环境，`der-cli` 与其他脚手架工具遵循同样的原则: no-root，这在一定程度上能保护你的电脑文件不被误操作从而引起不必要的错误。
 
-`der-cli` 缓存文件默认位于：`C:\users\[hostname]\der-cli\`
+`der-cli` 缓存文件默认位于：`C:\users\[hostname]\.der-cli\`
 
 下面将解释 `der-cli` 缓存文件的位置及作用。
 
 ### .git
 
-Located at `C:\users\[hostname]\der-cli\.git`
+Located at `C:\users\[hostname]\.der-cli\.git`
 
 用于缓存 Git 操作信息，这些信息将用于代码提交、创建远程仓库、发布分支，是 [Git Flow](#Git Flow) 流程的**必要**缓存。**建议**不要随意删除。
 
@@ -131,7 +132,7 @@ App Token 需要用户手动生成，生成地址：
 
 ### dependencies
 
-Located at `C:\users\[hostname]\der-cli\dependencies`
+Located at `C:\users\[hostname]\.der-cli\dependencies`
 
 用于缓存项目依赖文件，包括 `der-cli` 源码文件。
 
@@ -143,7 +144,7 @@ Located at `C:\users\[hostname]\der-cli\dependencies`
 
 ### template
 
-Located at `C:\users\[hostname]\der-cli\template`
+Located at `C:\users\[hostname]\.der-cli\template`
 
 用于缓存 项目/组件模板 源码。
 
@@ -248,7 +249,7 @@ TODO
 
 `der-cli` 支持客户端环境变量设置，一般情况不需要关注环境变量。
 
-但如果你想开发本项目或其他需求，可以在你的主机自定义一些变量，通过修改 `.env` 文件即可。`.env` 文件位于`C:\users\[hostname]\`路径下，即 `C:\users\[hostname]\der-cli\.env` ，若你的主机没有这个文件，手动创建即可，设置好后保存，`der-cli` 会自动读取这些变量。
+但如果你想开发本项目或其他需求，可以在你的主机自定义一些变量，通过修改 `.env` 文件即可。`.env` 文件位于`C:\users\[hostname]\`路径下，即 `C:\users\[hostname]\.der-cli\.env` ，若你的主机没有这个文件，手动创建即可，设置好后保存，`der-cli` 会自动读取这些变量。
 
 下面是一些环境变量示例：
 

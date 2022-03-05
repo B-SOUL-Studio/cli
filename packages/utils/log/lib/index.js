@@ -7,6 +7,7 @@ log.level = process.env.DER_CLI_LOG_LEVEL ? process.env.DER_CLI_LOG_LEVEL : 'inf
 // 前缀
 log.heading = 'der';
 log.headingStyle = { fg: 'white', bg: 'cyan' };
+log.prefixStyle = { fg: 'cyan' };
 
 // 添加自定义命令
 log.addLevel('success', 2000, { fg: 'green', bold: true });
