@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/cache",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "> TODO: description",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
@@ -27,8 +27,8 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli/command": "^0.4.0",
-    "@der-cli/log": "^0.4.0",
+    "@der-cli/command": "^0.4.3",
+    "@der-cli/log": "^0.4.3",
     "@der-cli/utils": "^0.4.0",
     "fs-extra": "^10.0.1"
   }

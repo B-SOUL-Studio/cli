@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.3](https://github.com/der-cli/der-cli/compare/v0.4.2...v0.4.3) (2022-03-05)
+
+**Note:** Version bump only for package @der-cli/clean
+
+
+
+
+
 ## [0.4.1](https://github.com/der-cli/der-cli/compare/v0.4.0...v0.4.1) (2022-03-03)
 
 **Note:** Version bump only for package @der-cli/clean

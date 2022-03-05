@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/clean",
-  "version": "0.4.1",
+  "version": "0.4.3",
   "description": "der cli 'clean' command",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
@@ -27,8 +27,8 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli/command": "^0.4.0",
-    "@der-cli/log": "^0.4.0",
+    "@der-cli/command": "^0.4.3",
+    "@der-cli/log": "^0.4.3",
     "fs-extra": "^10.0.1"
   }
 }

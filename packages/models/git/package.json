@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/git",
-  "version": "0.4.2",
+  "version": "0.4.3",
   "description": "Git Flow models",
   "author": "song <3224266014@qq.com>",
   "homepage": "https://github.com/der-cli/der-cli#readme",
@@ -31,7 +31,7 @@
     "url": "https://github.com/der-cli/der-cli/issues"
   },
   "dependencies": {
-    "@der-cli/log": "^0.4.0",
+    "@der-cli/log": "^0.4.3",
     "@der-cli/utils": "^0.4.0",
     "axios": "^0.26.0",
     "colors": "^1.4.0",
