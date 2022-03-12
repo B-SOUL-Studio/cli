@@ -3,7 +3,7 @@ const Error_PACKAGE_JSON_NOT_FOUND = () => {
 }
 
 const Error_PACKAGE_JSON_INFO_NOT_COMPLETE = () => {
-  throw new Error('[Go] package.json信息不完整, 请检查name, version, scripts(build命令)属性是否填写');
+  throw new Error('[Go] package.json信息不完整, 请检查name, version属性是否填写');
 }
 
 module.exports = {
