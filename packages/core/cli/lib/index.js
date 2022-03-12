@@ -59,7 +59,7 @@ function registerCommand() {
     .description(pkg.description)
     .usage('<command> [options]')
     .version(pkg.version)
-    .option('-d, --debug', '是否开启调试模式', false)
+    .option('-d, --debug', '开启调试模式', false)
     .option('-tp, --targetPath <targetPath>', '指定本地调试文件路径', '');
 
   program

@@ -28,7 +28,6 @@
 - [x] Auto commit & create a remote repo(github/gitee)
 - [x] Version control(Git Flow)
 - [x] Specification submission code
-- [ ] then...
 
 ## Quick Start
 
@@ -36,6 +35,8 @@
 
 ```shell
 $ npm install @der-cli/core -g
+# or
+$ yarn global add @der-cli/core
 ```
 
 #### 初始化项目
@@ -55,14 +56,14 @@ $ der go
 
 > 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 >
-> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token，Github用户可以在 [此处](https://github.com/settings/tokens) 申请Token, Gitee用户详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token，Github 用户可以在 [此处](https://github.com/settings/tokens) 申请 Token, Gitee 用户详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
 
 > 如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
 
 #### 发布 tag
 
 ```shell
-$ der go -release
+$ der go --release
 # or 简写
 $ der go -re
 ```
@@ -128,7 +129,6 @@ see [docs](./docs/Documents.md)
 
 ## TODO
 
-- [ ] Add test: BDD tests
 - [ ] Add feat: add page cmd(may)
 
 ## Documents

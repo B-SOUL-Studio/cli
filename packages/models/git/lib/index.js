@@ -116,7 +116,7 @@ class Git {
     await this.checkGitOwner();
     await this.checkRepo();
     await this.checkGitIgnore();
-    await this.checkComponent();
+    // await this.checkComponent();
     await this.init();
   }
 
