@@ -5,6 +5,6 @@
 ## Usage
 
 ```
-const core = require('@der-cli/core');
+\(^o^)/~
 
 ```
