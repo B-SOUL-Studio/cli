@@ -51,7 +51,7 @@ class PublishCommand extends Command {
     const pkg = fse.readJsonSync(pkgPath);
     const { name, version, scripts } = pkg;
     // log.verbose('package.json:', name, version, scripts);
-    if (!name || !version || !scripts || !scripts.build) {
+    if (!name || !version) {
       Error_PACKAGE_JSON_INFO_NOT_COMPLETE()
     }
 
