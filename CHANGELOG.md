@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.4](https://github.com/der-cli/der-cli/compare/v0.4.3...v0.4.4) (2022-03-12)
+
+
+### Performance Improvements
+
+* 优化发布前检查流程 ([70cda90](https://github.com/der-cli/der-cli/commit/70cda90e1558bc400ccfc114b5d2dd56278ef106))
+
+
+
+
+
 ## [0.4.3](https://github.com/der-cli/der-cli/compare/v0.4.2...v0.4.3) (2022-03-05)
 
 **Note:** Version bump only for package der-cli
