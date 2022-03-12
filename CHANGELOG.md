@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.4.5](https://github.com/der-cli/der-cli/compare/v0.4.4...v0.4.5) (2022-03-12)
+
+
+### Performance Improvements
+
+* cut down go check ([2305f64](https://github.com/der-cli/der-cli/commit/2305f64db6206439eb79d0021ddc52a814ba2392))
+
+
+
+
+
 ## [0.4.4](https://github.com/der-cli/der-cli/compare/v0.4.3...v0.4.4) (2022-03-12)
 
 
