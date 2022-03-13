@@ -2,8 +2,10 @@
 # yarn lockfile v1
 
 
-"@der-cli-dev/log@file:../../utils/log":
-  version "0.0.1"
+"@der-cli/log@^0.4.3":
+  version "0.4.3"
+  resolved "https://registry.yarnpkg.com/@der-cli/log/-/log-0.4.3.tgz#5b55fea5520a401e0008cc120c5044b83c4b012c"
+  integrity sha512-/wtsqYqYR5cveBWnaEDPkd/8BfbAoICPDNA7MIOEJeJXQvN7oZBVKk5WMMMudybgabdDkG0wssNuJOaLxt7FTQ==
   dependencies:
     npmlog "^6.0.1"
 

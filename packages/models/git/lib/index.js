@@ -243,20 +243,31 @@ class Git {
     let repo = await this.gitServer.getRepo(this.login, this.name);
 
     if (!repo) {
-      let createStart = spinner('  [Git] Creating remote repo');
-      try {
-        if (this.owner === REPO_OWNER_USER) {
-          repo = await this.gitServer.createRepo(this.name);
-        } else {
-          repo = await this.gitServer.createOrgRepo(this.name, this.login);
+      const isCreateRemoteRepo = await inquirer({
+        type: 'confirm',
+        name: 'isCreateRemoteRepo',
+        default: true,
+        message: '远程仓库不存在, 是否立即创建?',
+      });
+      if (isCreateRemoteRepo) {
+        let createStart = spinner('  [Git] Creating remote repo');
+        try {
+          if (this.owner === REPO_OWNER_USER) {
+            repo = await this.gitServer.createRepo(this.name);
+          } else {
+            repo = await this.gitServer.createOrgRepo(this.name, this.login);
+          }
+        } finally {
+          createStart.stop(true);
         }
-      } finally {
-        createStart.stop(true);
-      }
-      if (repo) {
-        log.success('[Git] 远程仓库创建', '...done');
+
+        if (repo) {
+          log.success('[Git] 远程仓库创建', '...done');
+        } else {
+          Error_FAILED_CREATE_REMOTE_REPO()
+        }
       } else {
-        Error_FAILED_CREATE_REMOTE_REPO()
+        process.exit(1);
       }
     }
 
@@ -354,7 +365,7 @@ class Git {
     await this.initCommit();
   }
 
-  // 检查是否创建本地/远程仓库
+  // 检查是否初始化本地/远程仓库
   async getRemote() {
     const gitPath = path.resolve(this.dir, GIT_ROOT_DIR);
     this.remote = this.gitServer.getRemote(this.login, this.name); // 远程仓库地址

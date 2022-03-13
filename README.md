@@ -54,11 +54,13 @@ $ der init test-demo
 $ der go
 ```
 
-> 该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
->
-> **注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token，Github 用户可以在 [此处](https://github.com/settings/tokens) 申请 Token, Gitee 用户详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
 
-> 如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
+**注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token，Github 用户可以在 [此处](https://github.com/settings/tokens) 申请 Token, Gitee 用户详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+
+如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
+
+执行完该命令后，会在远程产生一个 `dev/x.x.x` 分支，版本的[提升规则]()按照标准流程执行，
 
 #### 发布 tag
 
@@ -68,9 +70,11 @@ $ der go --release
 $ der go -re
 ```
 
-> 该命令会删除当前版本开发分支并创建同版本 tag 分支，然后提交至远程仓库
->
-> 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Git-Flow-自动化).
+该命令会将代码合并到master分发删除当前版本开发分支，创建同版本 tag 分支合并到远程master分支，然后提交至远程仓库（远程与本地操作同步）。
+
+例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Git-Flow-自动化).
+
+每次执行 `der go [-re]` 时，脚手架会检查代码冲突，检查通过则正常提交， 未通过会退出命令进程，这需要你手动解决代码冲突，控制台会将冲突代码位置打印出来，解决冲突再次执行即可。
 
 ## More
 
