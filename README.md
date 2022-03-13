@@ -3,17 +3,17 @@
 </p>
 <p align="center">
     <a href="https://www.npmjs.org/package/@der-cli/core" target='_blank'>
-    	<img src="https://img.shields.io/npm/v/@der-cli/core?logo=npm">
+    	<img src="https://img.shields.io/npm/v/@der-cli/core?style=flat-square">
     </a>
     <a href="https://npmcharts.com/compare/@der-cli/core?minimal=true" target='_blank'>
-    	<img src="https://img.shields.io/npm/dt/@der-cli/core?logo=npm">
+    	<img src="https://img.shields.io/npm/dt/@der-cli/core?style=flat-square">
     </a>
     <a href="https://www.lernajs.cn/" target='_blank'>
-    	<img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?logo=lerna">
+    	<img src="https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg?style=flat-square">
     </a>
     <br>
-    <img src="https://img.shields.io/github/stars/der-cli/der-cli.svg?logo=github" alt="star"/>
-	<img src="https://img.shields.io/github/license/der-cli/der-cli?logo=GNU" alt="GPL"/>
+    <img src="https://img.shields.io/github/stars/der-cli/der-cli.svg?logo=github&style=flat-square" alt="star"/>
+	<img src="https://img.shields.io/github/license/der-cli/der-cli?style=flat-square" alt="GPL"/>
 </p>
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
