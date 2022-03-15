@@ -131,11 +131,11 @@ $ der -d
 
 see [docs](./docs/Documents.md)
 
-## TODO
+## TODOs
 
+- [ ] Add feat: choice yarn/npm
 - [ ] Add feat: add page cmd(may)
 - [ ] Add feat: add component cmd(may)
-- [ ] Add feat: choice yarn/npm
 
 ## Documents
 
