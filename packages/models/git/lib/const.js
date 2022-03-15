@@ -45,43 +45,43 @@ const GIT_PUBLISH_TYPE = [{
 }];
 
 const GIT_COMMIT_TYPE = [{
-    value: '✨feat',
+    value: 'feat',
     name: 'feat:      新功能',
   },
   {
-    value: '🐞fix',
+    value: 'fix',
     name: 'fix:       修复',
   },
   {
-    value: '📃docs',
+    value: 'docs',
     name: 'docs:      文档变更',
   },
   {
-    value: '🌈style',
+    value: 'style',
     name: 'style:     代码格式(不影响代码运行的变动)',
   },
   {
-    value: '🔨refactor',
+    value: 'refactor',
     name: 'refactor:  重构(既不是增加feature),也不是修复bug',
   },
   {
-    value: '🦄pref',
+    value: 'pref',
     name: 'pref:      性能优化',
   },
   {
-    value: '🚀test',
+    value: 'test',
     name: 'test:      增加测试',
   },
   {
-    value: '🔨chore',
+    value: 'chore',
     name: 'chore:     构建过程或辅助工具的变动',
   },
   {
-    value: '😎revert',
+    value: 'revert',
     name: 'revert:    回退',
   },
   {
-    value: '🔰build',
+    value: 'build',
     name: 'build:     打包',
   },
 ]
