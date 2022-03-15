@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.2](https://github.com/der-cli/der-cli/compare/v0.5.0...v0.5.2) (2022-03-15)
+
+
+### Performance Improvements
+
+* up ([e0caec1](https://github.com/der-cli/der-cli/commit/e0caec1bdafb33b6f3f2c048306222c40f512b29))
+
+
+
+
+
 # [0.5.0](https://github.com/der-cli/der-cli/compare/v0.4.7...v0.5.0) (2022-03-13)
 
 
