@@ -70,7 +70,7 @@ $ der go --release
 $ der go -re
 ```
 
-该命令会将代码合并到master分发删除当前版本开发分支，创建同版本 tag 分支合并到远程master分支，然后提交至远程仓库（远程与本地操作同步）。
+该命令会将代码合并到 master 分发删除当前版本开发分支，创建同版本 tag 分支合并到远程 master 分支，然后提交至远程仓库（远程与本地操作同步）。
 
 例: dev/1.0.1 => release/1.0.1，详见 [Git_Flow](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Git-Flow-自动化).
 
@@ -134,6 +134,8 @@ see [docs](./docs/Documents.md)
 ## TODO
 
 - [ ] Add feat: add page cmd(may)
+- [ ] Add feat: add component cmd(may)
+- [ ] Add feat: choice yarn/npm
 
 ## Documents
 
