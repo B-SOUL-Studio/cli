@@ -105,7 +105,7 @@ class Package {
       });
     }
     // TODO: downloadTemplate时此行未打印?
-    log.info(`[Package] 检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
+    // log.info(`[Package] 检测到更新: 已更新至 ${this.packageVersion} => ${latestPackageVersion}`);
     this.packageVersion = latestPackageVersion;
   }
 
