@@ -26,7 +26,7 @@ const {
 
 const program = new Command();
 
-let args;
+// let args;
 
 async function core() {
   try {
@@ -40,7 +40,7 @@ async function core() {
   }
 }
 
-// 1.准备阶段
+// 1.准备
 async function prepare() {
   printLogo()
   checkPkgVersion();
