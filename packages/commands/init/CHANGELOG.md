@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.5](https://github.com/der-cli/der-cli/compare/v0.5.4...v0.5.5) (2022-05-01)
+
+
+### Bug Fixes
+
+* version bug ([dd07ef9](https://github.com/der-cli/der-cli/commit/dd07ef9928beb2a14d89cbf8babe25df8d9f3074))
+
+
+
+
+
 ## [0.5.3](https://github.com/der-cli/der-cli/compare/v0.5.2...v0.5.3) (2022-04-30)
 
 **Note:** Version bump only for package @der-cli/init

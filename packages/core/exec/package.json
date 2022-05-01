@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/exec",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "动态init库",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
@@ -21,7 +21,7 @@
   },
   "dependencies": {
     "@der-cli/log": "^0.5.0",
-    "@der-cli/package": "^0.5.3",
+    "@der-cli/package": "^0.5.5",
     "@der-cli/utils": "^0.5.0"
   },
   "gitHead": "ff83013d9331007eed4708356e166448ead08b0e"

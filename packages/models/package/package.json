@@ -1,6 +1,6 @@
 {
   "name": "@der-cli/package",
-  "version": "0.5.4",
+  "version": "0.5.5",
   "description": "本地 Package 依赖下载、更新、缓存核心实现",
   "author": "song <3224266014@qq.com>",
   "homepage": "",
