@@ -21,6 +21,13 @@
 
 - A **scaffolding tool** to improve development efficiency for FE, build with **Node.js**.
 
+<div align='middle'>
+    <img width='50%' src='https://cdn.jsdelivr.net/gh/yesmore/img/der/dergo.png'/>
+    <img align='right' width='50%' src='https://cdn.jsdelivr.net/gh/yesmore/img/der/derinit.png'/>
+</div>
+
+
+
 ## 𝓓𝓮𝓻 can do
 
 - [x] Create a new project
