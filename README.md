@@ -19,8 +19,7 @@
 
 ### What is 𝓓𝓮𝓻?
 
-- A **scaffolding tool** to improve development efficiency for the front end, build with **Node.js**.
-- 一个提升前端开发效率的脚手架工具。
+- A **scaffolding tool** to improve development efficiency for FE, build with **Node.js**.
 
 ## 𝓓𝓮𝓻 can do
 
@@ -31,7 +30,7 @@
 
 ## Quick Start
 
-#### 本地安装
+#### Install CLI
 
 ```shell
 $ npm install @der-cli/core -g
@@ -39,34 +38,40 @@ $ npm install @der-cli/core -g
 $ yarn global add @der-cli/core
 ```
 
-#### 初始化项目
+#### Create a project with 'der init'
 
 ```shell
 $ mikdir mytest && cd mytest
 
 $ der init test-demo
-# 根据步骤创建即可
 ```
 
-#### 提交 & 初始化 Github/Gitee
+Before initialization, you can execute the **`der tpl`** command to see which templates are available(Network dependent).
+
+#### Commit to Github/Gitee with 'der go'
+
+This command initializes the repo locally (.git) and commits the code to the remote repo.
+
+Please check:
+
+- package.json
+- App Token
 
 ```shell
 $ der go
 ```
 
-该命令会在本地初始化 `.git` , 且提交代码至远程仓库。
+**Note**: ` der go` will commit the code to the remote repo with the same name of the project ( **repo name is the name attribute value of package.json**). If the remote repo does not exist, it will be created **automatically**. This requires you to prepare your remote repo APP Token in advance. GitHub users can apply for a token [here](https://github.com/settings/tokens). For Gitee users, see [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
 
-**注意**：`der go` 会将代码提交至项目**同名**远程仓库中( **仓库名即为 package.json 的 name 属性值** )，若远程仓库不存在，则会自动创建，这需要你提前准备好你的远程仓库 APP Token，Github 用户可以在 [此处](https://github.com/settings/tokens) 申请 Token, Gitee 用户详见 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+If you have created a remote repo, check package.json file, you can use this command directly.
 
-如果你已经创建了远程仓库，那么检查一下 package.json 文件后可直接使用该命令。
+After executing the command, a `dev / x.x.x` branch will be generated remotely.
 
-执行完该命令后，会在远程产生一个 `dev/x.x.x` 分支，版本的[提升规则]()按照标准流程执行，
-
-#### 发布 tag
+#### Release tag with 'der go -re'
 
 ```shell
 $ der go --release
-# or 简写
+# or abbreviation
 $ der go -re
 ```
 
@@ -76,9 +81,9 @@ $ der go -re
 
 每次执行 `der go [-re]` 时，脚手架会检查代码冲突，检查通过则正常提交， 未通过会退出命令进程，这需要你手动解决代码冲突，控制台会将冲突代码位置打印出来，解决冲突再次执行即可。
 
-## More
+## More Commands
 
-#### 查看模板列表
+#### View template list
 
 ```shell
 $ der tpl
@@ -89,24 +94,22 @@ $ der tpl --pro
 $ der tpl --com
 ```
 
-#### 查看本地缓存
+#### View local cache
 
 ```shell
 $ der cache --all
 
-# or 查看本地Git缓存信息
+# or
 $ der cache --git [--token]
-# or 查看本地模板缓存信息
+# or
 $ der cache --template
-# or 查看本地依赖缓存信息
+# or
 $ der cache --dependencies
-# or 查看App Token
-
 ```
 
-#### 清空本地缓存
+#### Empty local cache
 
-> 关于脚手架缓存，详见 [Cache 缓存](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Cache-缓存).
+> For scaffold cache, see [Cache](https://github.com/der-cli/cli/blob/master/docs/Documents.md#Cache-缓存).
 
 ```shell
 # Default: clean all
@@ -117,7 +120,7 @@ $ der clean --all
 $ der clean --dep
 ```
 
-#### DEBUG 模式
+#### DEBUG Mode
 
 ```shell
 $ der --debug
@@ -125,9 +128,9 @@ $ der --debug
 $ der -d
 ```
 
-更多命令 [详情](https://github.com/der-cli/cli/blob/master/docs/Documents.md)
+More Commands [here](https://github.com/der-cli/cli/blob/master/docs/Documents.md).
 
-#### 调试本地包
+#### Debug local package
 
 see [docs](./docs/Documents.md)
 
@@ -136,6 +139,7 @@ see [docs](./docs/Documents.md)
 - [ ] Add feat: choice yarn/npm
 - [ ] Add feat: add page cmd(may)
 - [ ] Add feat: add component cmd(may)
+- [ ] Add feat: Commit code to GitHub and gitee at the same time
 
 ## Documents
 
@@ -147,9 +151,13 @@ see [docs](./docs/Documents.md)
 
 ## Q & A
 
-#### 1.执行完初始化后，可以直接提交代码吗？
+#### 1.Can I Commit code directly after initialization？
 
-答：可以。前提是准备好你的 [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+A: Sure. The premise is to prepare your [App Token](https://github.com/der-cli/cli/blob/master/docs/Documents.md#App-Token).
+
+#### 2.Can I use the 'der go' command for projects I create directly?
+
+A: Sure. `der go` will be based on your **package.json** content creates a repository and commits branch code.
 
 ## Licence
 
