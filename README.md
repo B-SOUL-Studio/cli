@@ -17,17 +17,11 @@
 </p>
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
 
-<br>
 
-<img align='right' width='50%' src='https://cdn.jsdelivr.net/gh/yesmore/img/der/dergo.png'/>
 
-### What is 𝓓𝓮𝓻?
+## What's 𝓓𝓮𝓻?
 
 A **scaffolding tool** to improve development efficiency for FE, build with **Node.js**.
-
-​    <img align='right' width='50%' src='https://cdn.jsdelivr.net/gh/yesmore/img/der/derinit.png'/>
-
-
 
 ## 𝓓𝓮𝓻 can do
 
