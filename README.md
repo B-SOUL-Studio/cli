@@ -1,5 +1,5 @@
 <p align="center">
-	<img width='100px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/logo-der.png' alt='der'/>
+	<img width='100px' src='https://fastly.jsdelivr.net/gh/yesmore/img/img/logo-der.png' alt='der'/>
 </p>
 <p align="center">
     <a href="https://www.npmjs.org/package/@der-cli/core" target='_blank'>
@@ -16,8 +16,6 @@
 	<img src="https://img.shields.io/github/license/der-cli/der-cli?style=flat-square" alt="GPL"/>
 </p>
 <p align="center">⚡𝓓𝓮𝓻 - A scaffolding tool for FE</p>
-
-
 
 ## What's 𝓓𝓮𝓻?
 

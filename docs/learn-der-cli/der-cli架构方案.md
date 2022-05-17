@@ -1,6 +1,6 @@
 # der-cli 架构图
 
-![der-cli](https://cdn.jsdelivr.net/gh/yesmore/img/img/der-cli架构图.png)
+![der-cli](https://fastly.jsdelivr.net/gh/yesmore/img/img/der-cli架构图.png)
 
 ## 脚手架核心框架
 
@@ -12,12 +12,10 @@
 
 - [ ] 本地文件&环境变量（配置信息等）
 
-
-
-## Git操作规范体系
+## Git 操作规范体系
 
 - [ ] 仓库初始化（本地 / 远程）
-- [ ] 开发模式（dev分支同步）
+- [ ] 开发模式（dev 分支同步）
 - [ ] 发布模式（branch / tag）
 
 ### 代码仓库
@@ -25,11 +23,9 @@
 - [x] Github
 - [x] Gitee
 
-
-
 ## 初始化体系
 
-> 依赖Open API
+> 依赖 Open API
 
 - [ ] 项目初始化
 - [ ] 组件初始化
@@ -40,10 +36,6 @@
 - [x] 项目模板
 - [x] 组件模板
 
-
-
-
-
 ## Open API
 
 - [ ] 项目/组件模板
@@ -51,12 +43,6 @@
 ### 数据体系
 
 - [ ] MongoDB - 项目模板信息
-
-
-
-
-
-
 
 # der-cli 模块化策略
 
@@ -85,9 +71,7 @@
   - [x] 工具方法
   - [x] API 请求
 
-
-
-### Core模块
+### Core 模块
 
 #### 命令执行流程
 
@@ -95,30 +79,19 @@
 - 命令注册
 - 命令执行
 
-
-
-### Commands模块
+### Commands 模块
 
 #### init
 
-
-
-
-
-### Models模块
+### Models 模块
 
 > 通用模块
 
 关键词：
 
-- 高性能：基于**缓存**与**Node多进程**实现动态命令加载和执行
-- 可扩展：Class编程
+- 高性能：基于**缓存**与**Node 多进程**实现动态命令加载和执行
+- 可扩展：Class 编程
 
+#### 通用 Package Class
 
-
-#### 通用Package Class
-
-
-
-#### 通用Command Class
-
+#### 通用 Command Class

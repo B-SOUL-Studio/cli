@@ -54,19 +54,19 @@ Git 工作流程自动化。
 
 ### Git Flow - Prepare 阶段
 
-![gitflow-Commit](https://cdn.jsdelivr.net/gh/yesmore/img/img/gitflow-prepare.png)
+![gitflow-Commit](https://fastly.jsdelivr.net/gh/yesmore/img/img/gitflow-prepare.png)
 
 ### Git Flow - Init 阶段
 
-![gitflow-init](https://cdn.jsdelivr.net/gh/yesmore/img/img/gitflow-init.png)
+![gitflow-init](https://fastly.jsdelivr.net/gh/yesmore/img/img/gitflow-init.png)
 
 ### Git Flow - Commit 阶段
 
-![gitflow-Finish](https://cdn.jsdelivr.net/gh/yesmore/img/img/gitflow-todo.png)
+![gitflow-Finish](https://fastly.jsdelivr.net/gh/yesmore/img/img/gitflow-todo.png)
 
 ### Git Flow - Finish 阶段
 
-![gitflow-finish](https://cdn.jsdelivr.net/gh/yesmore/img/img/gitflow-finish.png)
+![gitflow-finish](https://fastly.jsdelivr.net/gh/yesmore/img/img/gitflow-finish.png)
 
 ### Git Flow 命令
 
@@ -76,7 +76,6 @@ Git 工作流程自动化。
   - Prepare
   - Init
   - Commit
-  
 - `der go -re` 提交代码到远程仓库并发布 Tag:
   - Prepare
   - Init

@@ -1,6 +1,6 @@
 # Scripts
 
-<img width='300px' src='https://cdn.jsdelivr.net/gh/yesmore/img/img/der.png' alt='der'/>
+<img width='300px' src='https://fastly.jsdelivr.net/gh/yesmore/img/img/der.png' alt='der'/>
 
 ## der 客户端命令
 
@@ -31,7 +31,7 @@ $ der go -re
 ### tpl
 
 ```shell
-$ der tpl 
+$ der tpl
 
 # Or only project template
 $ der tpl --pro
@@ -48,13 +48,11 @@ $ der cache --all
 $ der cache --git
 # or 查看本地模板缓存信息
 $ der cache --template
-# or 查看本地依赖缓存信息 
+# or 查看本地依赖缓存信息
 $ der cache --dependencies
-# or 查看App Token 
+# or 查看App Token
 $ der cache --token
 ```
-
-
 
 ## der-cli 开发者调试命令
 
@@ -128,4 +126,3 @@ $ yarn dev
 # or
 $ yarn start
 ```
-
